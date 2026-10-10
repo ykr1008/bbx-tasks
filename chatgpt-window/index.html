@@ -13,71 +13,49 @@
   <body>
     <div class="app">
       <aside class="sidebar">
-        <header class="sidebar-header">
-          <a class="brand" href="#" aria-label="ChatGPT home">
-            <span class="brand-icon" aria-hidden="true">✳</span>
-            <span class="brand-name">ChatGPT</span>
-          </a>
-        </header>
+        <div class="sidebar-header">
+          <a href="#">ChatGPT</a>
+          <button type="button" aria-label="Search chats">⌕</button>
+          <button type="button" aria-label="Collapse sidebar">☰</button>
+        </div>
 
-        <nav class="sidebar-nav" aria-label="Main navigation">
-          <ul>
-            <li>
-              <a href="#" aria-current="page">
-                <span aria-hidden="true">＋</span>
-                <span>New chat</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span aria-hidden="true">⌕</span>
-                <span>Explore</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span aria-hidden="true">▤</span>
-                <span>Library</span>
-              </a>
-            </li>
-          </ul>
-        </nav>
+        <div class="sidebar-content">
+          <nav class="sidebar-nav" aria-label="Main navigation">
+            <a href="#">✎ <span>New chat</span></a>
+            <a href="#">⌕ <span>Search chats</span></a>
+            <a href="#">▧ <span>Images</span></a>
+            <a href="#">▦ <span>Apps</span></a>
+            <a href="#">⌘ <span>Codex</span></a>
+            <a href="#">⌕ <span>Deep research</span></a>
+            <a href="#">▧ <span>Sora</span></a>
+          </nav>
 
-        <section class="recent-chats">
-          <h2>Recent</h2>
+          <section class="projects">
+            <h2>Projects</h2>
+            <a href="#">＋ <span>New project</span></a>
+          </section>
 
-          <ul>
-            <li>
-              <a href="#">Learning CSS Grid</a>
-            </li>
-            <li>
-              <a href="#">Building a portfolio</a>
-            </li>
-            <li>
-              <a href="#">Python interview preparation</a>
-            </li>
-            <li>
-              <a href="#">Understanding JavaScript</a>
-            </li>
-          </ul>
-        </section>
+          <section class="recent-chats">
+            <h2>Recents</h2>
+            <ul>
+              <li><a href="#">ChatGPT UI styling</a></li>
+              <li><a href="#">CSS layout practice</a></li>
+              <li><a href="#">Learning JavaScript</a></li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="sidebar-profile">
+          <div class="profile-info">
+            <strong>Your name</strong>
+            <span>Free plan</span>
+          </div>
+          <button type="button">Upgrade plan</button>
+        </div>
       </aside>
 
       <main class="main-content">
         <header class="topbar">
-          <div class="topbar-left">
-            <button
-              type="button"
-              class="sidebar-toggle"
-              aria-label="Toggle sidebar"
-            >
-              ☰
-            </button>
-
-            <span class="model-name">ChatGPT</span>
-            <span class="model-icon" aria-hidden="true">⌄</span>
-          </div>
-
           <div class="topbar-right">
             <button type="button" class="upgrade-button">Upgrade</button>
           </div>
@@ -131,12 +109,23 @@
             </button>
 
             <div class="composer-right">
-              <button
-                type="button"
-                class="voice-button"
-                aria-label="Voice input"
-              >
-                🎙
+              <button type="button" aria-label="Use microphone">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <rect x="9" y="2" width="6" height="12" rx="3"></rect>
+                  <path d="M5 10a7 7 0 0 0 14 0"></path>
+                  <path d="M12 17v5"></path>
+                  <path d="M8 22h8"></path>
+                </svg>
               </button>
 
               <button
@@ -144,7 +133,20 @@
                 class="send-button"
                 aria-label="Send message"
               >
-                ↑
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M12 19V5"></path>
+                  <path d="m5 12 7-7 7 7"></path>
+                </svg>
               </button>
             </div>
           </div>
