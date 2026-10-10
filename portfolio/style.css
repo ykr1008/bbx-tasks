@@ -61,3 +61,81 @@ a {
 .navbar nav a:hover {
     color: var(--accent-color);
 }
+
+/* Hero Section */
+.hero {
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    padding: 80px 8%;
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.hero-greeting {
+    color: var(--accent-color);
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 4px;
+    margin-bottom: 16px;
+}
+
+.hero h1 {
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1.1;
+    margin-bottom: 16px;
+}
+
+.hero h1 span {
+    color: var(--accent-color);
+}
+
+.hero h2 {
+    color: var(--muted-color);
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: normal;
+    margin-bottom: 24px;
+}
+
+.hero-description {
+    max-width: 600px;
+    color: var(--muted-color);
+    font-size: 1.05rem;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border: 1px solid var(--accent-color);
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--accent-color);
+}
+
+.btn-outline {
+    color: var(--accent-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
