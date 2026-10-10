@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ChatGPT Window Demo</title>
+    <link rel="stylesheet" href="style.css" />
+    <meta
+      name="description"
+      content="rebuilding the chatgpt window using html and css"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <aside class="sidebar">
+        <header class="sidebar-header">
+          <a class="brand" href="#" aria-label="ChatGPT home">
+            <span class="brand-icon" aria-hidden="true">✳</span>
+            <span class="brand-name">ChatGPT</span>
+          </a>
+        </header>
+
+        <nav class="sidebar-nav" aria-label="Main navigation">
+          <ul>
+            <li>
+              <a href="#" aria-current="page">
+                <span aria-hidden="true">＋</span>
+                <span>New chat</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span aria-hidden="true">⌕</span>
+                <span>Explore</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span aria-hidden="true">▤</span>
+                <span>Library</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <section class="recent-chats">
+          <h2>Recent</h2>
+
+          <ul>
+            <li>
+              <a href="#">Learning CSS Grid</a>
+            </li>
+            <li>
+              <a href="#">Building a portfolio</a>
+            </li>
+            <li>
+              <a href="#">Python interview preparation</a>
+            </li>
+            <li>
+              <a href="#">Understanding JavaScript</a>
+            </li>
+          </ul>
+        </section>
+      </aside>
+
+      <main class="main-content">
+        <header class="topbar">
+          <div class="topbar-left">
+            <button
+              type="button"
+              class="sidebar-toggle"
+              aria-label="Toggle sidebar"
+            >
+              ☰
+            </button>
+
+            <span class="model-name">ChatGPT</span>
+            <span class="model-icon" aria-hidden="true">⌄</span>
+          </div>
+
+          <div class="topbar-right">
+            <button type="button" class="upgrade-button">Upgrade</button>
+          </div>
+        </header>
+
+        <section class="welcome">
+          <h1>What can I help with?</h1>
+
+          <div class="suggestions">
+            <button type="button" class="suggestion-card">
+              <span class="suggestion-icon" aria-hidden="true">✏️</span>
+              <span>Write something</span>
+            </button>
+
+            <button type="button" class="suggestion-card">
+              <span class="suggestion-icon" aria-hidden="true">💡</span>
+              <span>Get advice</span>
+            </button>
+
+            <button type="button" class="suggestion-card">
+              <span class="suggestion-icon" aria-hidden="true">📚</span>
+              <span>Learn something</span>
+            </button>
+
+            <button type="button" class="suggestion-card">
+              <span class="suggestion-icon" aria-hidden="true">💻</span>
+              <span>Code something</span>
+            </button>
+          </div>
+        </section>
+
+        <form class="chat-form">
+          <label class="visually-hidden" for="message-input">
+            Message ChatGPT
+          </label>
+
+          <textarea
+            id="message-input"
+            name="message"
+            placeholder="Message ChatGPT"
+            rows="1"
+          ></textarea>
+
+          <div class="composer-actions">
+            <button
+              type="button"
+              class="attach-button"
+              aria-label="Add attachment"
+            >
+              +
+            </button>
+
+            <div class="composer-right">
+              <button
+                type="button"
+                class="voice-button"
+                aria-label="Voice input"
+              >
+                🎙
+              </button>
+
+              <button
+                type="submit"
+                class="send-button"
+                aria-label="Send message"
+              >
+                ↑
+              </button>
+            </div>
+          </div>
+        </form>
+        <footer class="footer">
+          <p class="disclaimer">
+            ChatGPT can make mistakes. Check important information.
+          </p>
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
