@@ -549,3 +549,20 @@ a {
     max-width: 600px;
     font-size: 0.85rem;
 }
+
+/* Accessibility */
+a:focus-visible,
+button:focus-visible {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    * {
+        transition: none !important;
+    }
+}
