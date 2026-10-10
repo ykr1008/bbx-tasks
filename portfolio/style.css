@@ -29,3 +29,35 @@ a {
     --accent-color: #A78BFA;
     --border-color: #253047;
 }
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 8%;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.logo span {
+    color: var(--accent-color);
+}
+
+.navbar nav {
+    display: flex;
+    gap: 28px;
+}
+
+.navbar nav a {
+    color: var(--muted-color);
+    transition: color 0.3s ease;
+}
+
+.navbar nav a:hover {
+    color: var(--accent-color);
+}
