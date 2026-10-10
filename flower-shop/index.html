@@ -9,72 +9,79 @@
     />
     <title>Flower Shop | Fresh Flowers</title>
     <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌸</text></svg>"
+    />
   </head>
+
   <body>
     <!-- Header -->
     <header class="site-header">
-      <a href="#" class="logo">flower<span>.</span></a>
+      <a href="#home" class="logo">flower<span>.</span></a>
 
       <nav class="navbar" aria-label="Main navigation">
         <a href="#home">Home</a>
         <a href="#about">About</a>
         <a href="#products">Products</a>
-        <a href="#reviews">Review</a>
+        <a href="#reviews">Reviews</a>
         <a href="#contact">Contact</a>
       </nav>
 
       <div class="header-icons">
-        <a href="#products" aria-label="Search products">⌕</a>
-        <a href="#products" aria-label="Shopping cart">🛒</a>
-        <a href="#contact" aria-label="Your account">♙</a>
+        <a href="#products" aria-label="Favorites"
+          ><i class="fas fa-heart"></i
+        ></a>
+        <a href="#products" aria-label="Shopping cart"
+          ><i class="fas fa-shopping-cart"></i
+        ></a>
+        <a href="#contact" aria-label="Account"><i class="fas fa-user"></i></a>
       </div>
     </header>
 
-    <!-- Hero section -->
     <main>
+      <!-- Hero -->
       <section class="hero" id="home">
         <div class="hero-content">
           <h1>Fresh Flowers</h1>
           <h2>Natural &amp; Beautiful Flowers</h2>
-
           <p>
             Bring nature's beauty into your life with our fresh, hand-picked
             flowers. Find the perfect bloom for every moment and every occasion.
           </p>
-
           <a href="#products" class="btn">Shop Now</a>
         </div>
       </section>
-      <!-- About section -->
+
+      <!-- About -->
       <section class="about" id="about">
         <h2 class="section-title"><span>About</span> Us</h2>
 
         <div class="about-row">
-          <div class="about-image">
-            <video controls muted playsinline preload="metadata">
-              <source src="images/flower-video.mp4" type="video/mp4" />
-              Sorry, your browser does not support embedded videos.
+          <div class="about-media">
+            <video autoplay muted loop playsinline preload="auto">
+              <source src="images/flowers.mp4" type="video/mp4" />
             </video>
             <div class="video-title">
               <h3>Best Flower Sellers</h3>
             </div>
-            <h3>Fresh Flowers, Happy Moments</h3>
           </div>
 
           <div class="about-content">
             <h3>Why Choose Our Flowers?</h3>
-
             <p>
               We believe flowers make every moment special. Our flowers are
               carefully selected to bring beauty, freshness, and happiness to
               your everyday life.
             </p>
-
             <p>
               Whether you're celebrating a special occasion or surprising
               someone you love, we're here to help you find the perfect flowers.
             </p>
-
             <a href="#products" class="btn">Learn More</a>
           </div>
         </div>
@@ -83,29 +90,27 @@
           <div class="benefit">
             <div class="benefit-icon">🚚</div>
             <h3>Free Delivery</h3>
-            <p>On All Orders</p>
+            <p>On all orders</p>
           </div>
-
           <div class="benefit">
             <div class="benefit-icon">↩️</div>
             <h3>10 Days Returns</h3>
-            <p>Moneyback Guarantee</p>
+            <p>Money-back guarantee</p>
           </div>
-
           <div class="benefit">
             <div class="benefit-icon">🎁</div>
-            <h3>Offer & Gifts</h3>
-            <p>On All Orders</p>
+            <h3>Offers &amp; Gifts</h3>
+            <p>On all orders</p>
           </div>
-
           <div class="benefit">
             <div class="benefit-icon">🔒</div>
             <h3>Secure Payments</h3>
-            <p>Protected By PayPal</p>
+            <p>Protected by PayPal</p>
           </div>
         </div>
       </section>
-      <!-- Products section -->
+
+      <!-- Products -->
       <section class="products" id="products">
         <h2 class="section-title">Latest <span>Products</span></h2>
 
@@ -115,7 +120,8 @@
             <div class="product-image">
               <img
                 src="images/pink-flower.jpg"
-                alt="Fresh pink flower bouquet"
+                alt="Pink flower bouquet"
+                loading="lazy"
               />
             </div>
             <div class="product-info">
@@ -128,7 +134,7 @@
           <article class="product-card">
             <span class="discount">-15%</span>
             <div class="product-image">
-              <img src="images/rose.jpg" alt="Beautiful rose bouquet" />
+              <img src="images/rose.jpg" alt="Rose bouquet" loading="lazy" />
             </div>
             <div class="product-info">
               <h3>Rose Bouquet</h3>
@@ -140,7 +146,11 @@
           <article class="product-card">
             <span class="discount">-8%</span>
             <div class="product-image">
-              <img src="images/mix.jpg" alt="Elegant flower arrangement" />
+              <img
+                src="images/mix.jpg"
+                alt="Elegant flower arrangement"
+                loading="lazy"
+              />
             </div>
             <div class="product-info">
               <h3>Elegant Flower Mix</h3>
@@ -152,7 +162,11 @@
           <article class="product-card">
             <span class="discount">-12%</span>
             <div class="product-image">
-              <img src="images/gift.jpg" alt="Decorative floral bouquet" />
+              <img
+                src="images/gift.jpg"
+                alt="Decorative floral gift bouquet"
+                loading="lazy"
+              />
             </div>
             <div class="product-info">
               <h3>Classic Floral Gift</h3>
@@ -160,12 +174,15 @@
               <button class="btn" type="button">Add to Cart</button>
             </div>
           </article>
+
+          <!-- TODO: swap flower-banner.jpg for unique product images (5 to 9) -->
           <article class="product-card">
             <span class="discount">-18%</span>
             <div class="product-image">
               <img
                 src="images/flower-banner.jpg"
                 alt="Pink floral arrangement"
+                loading="lazy"
               />
             </div>
             <div class="product-info">
@@ -178,7 +195,11 @@
           <article class="product-card">
             <span class="discount">-10%</span>
             <div class="product-image">
-              <img src="images/flower-banner.jpg" alt="White flower bouquet" />
+              <img
+                src="images/flower-banner.jpg"
+                alt="White flower bouquet"
+                loading="lazy"
+              />
             </div>
             <div class="product-info">
               <h3>White Elegance</h3>
@@ -193,6 +214,7 @@
               <img
                 src="images/flower-banner.jpg"
                 alt="Colorful mixed flower bouquet"
+                loading="lazy"
               />
             </div>
             <div class="product-info">
@@ -208,6 +230,7 @@
               <img
                 src="images/flower-banner.jpg"
                 alt="Red roses arranged as a gift"
+                loading="lazy"
               />
             </div>
             <div class="product-info">
@@ -222,7 +245,8 @@
             <div class="product-image">
               <img
                 src="images/flower-banner.jpg"
-                alt="Decorative seasonal flowers"
+                alt="Seasonal flowers"
+                loading="lazy"
               />
             </div>
             <div class="product-info">
@@ -233,12 +257,19 @@
           </article>
         </div>
       </section>
-      <!-- Reviews section -->
+
+      <!-- Reviews -->
       <section class="reviews" id="reviews">
         <h2 class="section-title">Customer <span>Reviews</span></h2>
 
         <div class="review-grid">
           <article class="review-card">
+            <img
+              class="customer-photo"
+              src="images/customer-1.jpg"
+              alt="Portrait of Ananya"
+              loading="lazy"
+            />
             <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
             <p>
               "The flowers were fresh, beautiful, and delivered right on time.
@@ -249,6 +280,12 @@
           </article>
 
           <article class="review-card">
+            <img
+              class="customer-photo"
+              src="images/customer-2.jpg"
+              alt="Portrait of Rahul"
+              loading="lazy"
+            />
             <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
             <p>
               "Amazing quality and lovely packaging. I ordered flowers for a
@@ -259,6 +296,12 @@
           </article>
 
           <article class="review-card">
+            <img
+              class="customer-photo"
+              src="images/customer-3.jpg"
+              alt="Portrait of Meera"
+              loading="lazy"
+            />
             <div class="review-stars" aria-label="5 out of 5 stars">★★★★★</div>
             <p>
               "Beautiful arrangements at a reasonable price. I'll definitely
@@ -269,60 +312,52 @@
           </article>
         </div>
       </section>
-      <!-- Contact section -->
+
+      <!-- Contact -->
       <section class="contact" id="contact">
         <h2 class="section-title"><span>Contact</span> Us</h2>
 
         <div class="contact-container">
           <form class="contact-form" action="#" method="post">
-            <div class="form-group">
-              <label for="name">Your Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="Enter your name"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="email">Your Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Enter your email"
-                required
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="phone">Your Phone</label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                placeholder="Enter your phone number"
-              />
-            </div>
-
-            <div class="form-group">
-              <label for="message">Your Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                placeholder="Write your message"
-                required
-              ></textarea>
-            </div>
-
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              aria-label="Name"
+              required
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              aria-label="Email"
+              required
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Number"
+              aria-label="Phone number"
+            />
+            <textarea
+              name="message"
+              rows="6"
+              placeholder="Message"
+              aria-label="Message"
+              required
+            ></textarea>
             <button type="submit" class="btn">Send Message</button>
           </form>
+
+          <img
+            class="contact-img"
+            src="images/women & flowers.png"
+            alt="Woman watering flowers"
+          />
         </div>
       </section>
     </main>
+
     <!-- Footer -->
     <footer class="site-footer">
       <div class="footer-content">

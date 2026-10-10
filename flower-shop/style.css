@@ -1,7 +1,20 @@
-
 /* ========================================
-   1. RESET AND BASE STYLES
+   1. VARIABLES, RESET AND BASE
 ======================================== */
+
+:root {
+  --pink: #e84393;
+  --pink-light: #ffe6f0;
+  --bg-soft: #fff5f8;
+  --bg-section: #fffafd;
+  --border: #f2e5eb;
+  --text: #333;
+  --text-muted: #666;
+  --text-faint: #999;
+  --star: #f5a623;
+  --radius: 8px;
+  --ease: 0.3s ease;
+}
 
 * {
   margin: 0;
@@ -11,11 +24,12 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px; /* keeps section titles clear of the sticky header */
 }
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  color: #333;
+  color: var(--text);
   background-color: #fff;
 }
 
@@ -24,26 +38,26 @@ body {
 ======================================== */
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 20px 7%;
   background-color: #fff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
 .logo {
-  color: #333;
+  color: var(--text);
   font-size: 30px;
   font-weight: 700;
   text-decoration: none;
 }
 
 .logo span {
-  color: #e84393;
+  color: var(--pink);
 }
 
 .navbar {
@@ -53,14 +67,9 @@ body {
 }
 
 .navbar a {
-  color: #666;
-  font-size: 16px;
+  color: var(--text-muted);
   text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.navbar a:hover {
-  color: #e84393;
+  transition: color var(--ease);
 }
 
 .header-icons {
@@ -70,14 +79,15 @@ body {
 }
 
 .header-icons a {
-  color: #333;
+  color: var(--text);
   font-size: 23px;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color var(--ease);
 }
 
+.navbar a:hover,
 .header-icons a:hover {
-  color: #e84393;
+  color: var(--pink);
 }
 
 /* ========================================
@@ -89,35 +99,32 @@ body {
   padding: 12px 32px;
   border: none;
   border-radius: 25px;
-  background-color: #333;
+  background-color: var(--text);
   color: #fff;
   font-size: 1rem;
   text-decoration: none;
   cursor: pointer;
   transition:
-    background-color 0.3s ease,
-    transform 0.3s ease;
+    background-color var(--ease),
+    transform var(--ease);
 }
 
 .btn:hover {
-  background-color: #e84393;
+  background-color: var(--pink);
   transform: translateY(-3px);
 }
 
 /* ========================================
-   4. HERO SECTION
+   4. HERO
 ======================================== */
 
 .hero {
-  min-height: 85vh;
   display: flex;
   align-items: center;
+  min-height: 85vh;
   padding: 40px 7%;
-  background-color: #fff5f8;
-  background-image: url("images/flower-banner.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: var(--bg-soft) url("images/flower-banner.jpg") center / cover
+    no-repeat;
 }
 
 .hero-content {
@@ -126,47 +133,49 @@ body {
 
 .hero-content h1 {
   margin-bottom: 10px;
-  color: #333;
   font-size: clamp(2.5rem, 5vw, 4rem);
 }
 
 .hero-content h2 {
   margin-bottom: 18px;
-  color: #e84393;
+  color: var(--pink);
   font-size: clamp(1.3rem, 2.5vw, 1.8rem);
   font-weight: 500;
 }
 
 .hero-content p {
   margin-bottom: 25px;
-  color: #666;
-  font-size: 1rem;
+  color: var(--text-muted);
   line-height: 1.8;
 }
 
 /* ========================================
-   5. SHARED SECTION HEADINGS
+   5. SHARED SECTION STYLES
 ======================================== */
+
+.about,
+.products,
+.reviews,
+.contact {
+  padding: 60px 7%;
+}
 
 .section-title {
   margin-bottom: 40px;
-  color: #333;
+  padding: 10px 0;
+  background-color: var(--bg-soft);
   font-size: 2.5rem;
   text-align: center;
-  text-transform: uppercase;
+  text-transform: capitalize;
 }
 
 .section-title span {
-  color: #e84393;
+  color: var(--pink);
 }
 
 /* ========================================
-   6. ABOUT SECTION
+   6. ABOUT
 ======================================== */
-
-.about {
-  padding: 60px 7%;
-}
 
 .about-row {
   display: flex;
@@ -174,44 +183,42 @@ body {
   gap: 40px;
 }
 
-.about-image {
+.about-media {
   position: relative;
   flex: 1 1 45%;
+  padding: 15px;
+  border-radius: var(--radius);
+  background-color: #fff;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
-.about-image img,
-.about-image video {
+.about-media video {
   display: block;
   width: 100%;
   height: 350px;
-  border-radius: 8px;
+  border-radius: var(--radius);
+  background-color: var(--bg-soft);
   object-fit: cover;
-}
-
-.about-image video {
-  background-color: #fff5f8;
 }
 
 .video-title {
   position: absolute;
   top: 50%;
   left: 0;
-  z-index: 2;
   width: 100%;
-  padding: 20px 10px;
-  background-color: rgba(255, 255, 255, 0.85);
+  padding: 10px;
+  background-color: #fff;
+  mix-blend-mode: screen;
   text-align: center;
   transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .video-title h3 {
-  margin: 0;
-  color: #333;
+  color: #000;
   font-size: clamp(1.5rem, 3vw, 2.5rem);
   font-weight: 800;
-  text-transform: uppercase;
 }
-
 .about-content {
   flex: 1 1 45%;
 }
@@ -223,12 +230,12 @@ body {
 
 .about-content p {
   margin-bottom: 15px;
-  color: #666;
+  color: var(--text-muted);
   line-height: 1.8;
 }
 
 /* ========================================
-   7. SERVICE BENEFITS
+   7. BENEFITS
 ======================================== */
 
 .benefits {
@@ -254,21 +261,22 @@ body {
 }
 
 .benefit p {
-  color: #666;
+  color: var(--text-muted);
   font-size: 0.9rem;
   line-height: 1.5;
 }
 
 /* ========================================
-   8. PRODUCTS SECTION
+   8. PRODUCTS
 ======================================== */
 
-.products {
-  padding: 60px 7%;
-  background-color: #fffafd;
+.products,
+.contact {
+  background-color: var(--bg-section);
 }
 
-.product-grid {
+.product-grid,
+.review-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 25px;
@@ -277,12 +285,12 @@ body {
 .product-card {
   position: relative;
   overflow: hidden;
-  border: 1px solid #f2e5eb;
-  border-radius: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   background-color: #fff;
   transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+    transform var(--ease),
+    box-shadow var(--ease);
 }
 
 .product-card:hover {
@@ -297,8 +305,8 @@ body {
   z-index: 1;
   padding: 5px 10px;
   border-radius: 4px;
-  background-color: #ffe6f0;
-  color: #e84393;
+  background-color: var(--pink-light);
+  color: var(--pink);
   font-size: 0.85rem;
 }
 
@@ -331,126 +339,127 @@ body {
 
 .price {
   margin-bottom: 15px;
-  color: #e84393;
+  color: var(--pink);
   font-size: 1.2rem;
   font-weight: 700;
 }
 
 .price span {
   margin-left: 5px;
-  color: #999;
+  color: var(--text-faint);
   font-size: 0.9rem;
   font-weight: 400;
   text-decoration: line-through;
 }
 
-.product-info .btn {
-  cursor: pointer;
-}
-
 /* ========================================
-   9. CUSTOMER REVIEWS
+   9. REVIEWS
 ======================================== */
-
-.reviews {
-  padding: 60px 7%;
-}
-
-.review-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 25px;
-}
 
 .review-card {
   padding: 30px 25px;
-  border: 1px solid #f2e5eb;
-  border-radius: 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   background-color: #fff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-  transition: transform 0.3s ease;
+  transition: transform var(--ease);
 }
 
 .review-card:hover {
   transform: translateY(-5px);
 }
 
-.stars,
+.customer-photo {
+  display: block;
+  width: 85px;
+  height: 85px;
+  margin: 0 auto 15px;
+  border: 3px solid var(--pink-light);
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 .review-stars {
   margin-bottom: 15px;
-  color: #f5a623;
+  color: var(--star);
   font-size: 1.3rem;
   letter-spacing: 3px;
 }
 
 .review-card p {
   margin-bottom: 20px;
-  color: #666;
+  color: var(--text-muted);
   line-height: 1.8;
 }
 
 .review-card h3 {
   margin-bottom: 5px;
-  color: #333;
 }
 
 .review-card span {
-  color: #999;
+  color: var(--text-faint);
   font-size: 0.9rem;
 }
 
 /* ========================================
-   10. CONTACT SECTION
+   10. CONTACT
 ======================================== */
 
-.contact {
-  padding: 60px 7%;
-  background-color: #fffafd;
+.contact-container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
 }
 
-.contact-container {
-  max-width: 750px;
-  margin: 0 auto;
-  padding: 35px;
-  border: 1px solid #f2e5eb;
-  border-radius: 10px;
+.contact-form {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 30px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   background-color: #fff;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
 }
 
-.contact-form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.form-group {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.form-group label {
-  color: #333;
-  font-weight: 600;
-}
-
-.form-group input,
-.form-group textarea {
+.contact-form input,
+.contact-form textarea {
   width: 100%;
-  padding: 13px 15px;
+  padding: 14px 15px;
   border: 1px solid #ddd;
-  border-radius: 6px;
-  background-color: #fff;
-  color: #333;
+  border-radius: 5px;
+  color: var(--text);
   font: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--pink);
+  outline: 2px solid var(--pink);
+  outline-offset: 2px;
+}
+
+.contact-form textarea {
+  resize: vertical;
+}
+
+.contact-form .btn {
+  align-self: flex-start;
+}
+
+.contact-img {
+  flex: 1 1 50%;
+  min-width: 0;
+  max-width: 50%;
+  height: auto;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  outline: 2px solid #e84393;
+  border-color: var(--pink);
+  outline: 2px solid var(--pink);
   outline-offset: 2px;
-  border-color: #e84393;
 }
 
 .form-group textarea {
@@ -459,7 +468,6 @@ body {
 
 .contact-form .btn {
   align-self: flex-start;
-  cursor: pointer;
 }
 
 /* ========================================
@@ -468,7 +476,7 @@ body {
 
 .site-footer {
   padding: 45px 7% 0;
-  background-color: #fff5f8;
+  background-color: var(--bg-soft);
 }
 
 .footer-content {
@@ -481,7 +489,7 @@ body {
 .footer-brand p,
 .footer-contact p {
   margin-top: 12px;
-  color: #666;
+  color: var(--text-muted);
   line-height: 1.7;
 }
 
@@ -494,30 +502,29 @@ body {
 .footer-links h3,
 .footer-contact h3 {
   margin-bottom: 5px;
-  color: #333;
 }
 
 .footer-links a {
   width: fit-content;
-  color: #666;
+  color: var(--text-muted);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color var(--ease);
 }
 
 .footer-links a:hover {
-  color: #e84393;
+  color: var(--pink);
 }
 
 .footer-bottom {
   padding: 20px 0;
   border-top: 1px solid #eadde3;
-  color: #666;
+  color: var(--text-muted);
   font-size: 0.9rem;
   text-align: center;
 }
 
 /* ========================================
-   12. TABLET RESPONSIVENESS
+   12. TABLET (max 900px)
 ======================================== */
 
 @media (max-width: 900px) {
@@ -543,23 +550,22 @@ body {
     align-items: stretch;
   }
 
-  .about-image,
-  .about-content {
-    width: 100%;
-  }
-
   .product-grid,
-  .review-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
+  .review-grid,
   .benefits {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-img {
+    max-width: 100%;
   }
 }
 
 /* ========================================
-   13. MOBILE RESPONSIVENESS
+   13. MOBILE (max 600px)
 ======================================== */
 
 @media (max-width: 600px) {
@@ -575,12 +581,11 @@ body {
   .hero {
     min-height: 70vh;
     padding: 35px 5%;
-    background-position: center;
   }
 
   .product-grid,
-  .benefits,
-  .review-grid {
+  .review-grid,
+  .benefits {
     grid-template-columns: 1fr;
   }
 
@@ -589,8 +594,7 @@ body {
     font-size: 2rem;
   }
 
-  .about-image img,
-  .about-image video {
+  .about-media video {
     height: 250px;
   }
 
