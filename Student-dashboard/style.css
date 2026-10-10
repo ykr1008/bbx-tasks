@@ -1,0 +1,95 @@
+/* Reset default browser spacing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic page styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+    color: #1f2937;
+    line-height: 1.6;
+}
+
+/* Main content container */
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 30px 0;
+}
+
+/* Main page heading */
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #1e3a8a;
+}
+
+/* Navigation bar */
+.navbar {
+    background-color: #172554;
+    color: white;
+    padding: 16px 5%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Website logo */
+.logo {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* Navigation links container */
+.nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+}
+
+/* Individual navigation links */
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect */
+.nav-links a:hover {
+    color: #93c5fd;
+}
+.profile-card {
+    position: relative;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 35px 25px;
+    background-color: white;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.profile-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
