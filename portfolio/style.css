@@ -407,3 +407,145 @@ a {
         padding: 26px;
     }
 }
+
+/* Contact Section */
+.contact {
+    padding: 90px 8%;
+}
+
+.contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.contact-info h3 {
+    font-size: 1.6rem;
+    margin-bottom: 16px;
+}
+
+.contact-info > p {
+    color: var(--muted-color);
+    margin-bottom: 28px;
+}
+
+.contact-link {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-link span {
+    color: var(--muted-color);
+    font-size: 0.9rem;
+}
+
+.contact-link strong {
+    color: var(--accent-color);
+    overflow-wrap: anywhere;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 28px;
+    background-color: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.contact-form label {
+    font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 13px 14px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    cursor: pointer;
+    font: inherit;
+    margin-top: 8px;
+}
+
+@media (max-width: 768px) {
+    .contact {
+        padding: 65px 5%;
+    }
+
+    .contact-container {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+}
+
+/* Footer */
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 40px 5% 24px;
+    background-color: #0E1422;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.footer-logo span {
+    color: var(--accent-color);
+}
+
+.footer > p {
+    color: var(--muted-color);
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+.footer-links a {
+    color: var(--muted-color);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent-color);
+}
+
+.footer .copyright {
+    padding-top: 18px;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+    max-width: 600px;
+    font-size: 0.85rem;
+}
