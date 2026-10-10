@@ -139,3 +139,47 @@ a {
     background-color: var(--accent-color);
     color: var(--bg-color);
 }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 20px 5%;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .navbar nav {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px 20px;
+    }
+
+    .hero {
+        min-height: 75vh;
+        padding: 60px 5%;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar nav {
+        gap: 10px 14px;
+        font-size: 0.9rem;
+    }
+
+    .hero {
+        padding: 48px 5%;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn {
+        text-align: center;
+    }
+}
