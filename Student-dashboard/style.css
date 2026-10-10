@@ -1,148 +1,537 @@
-/* Reset default browser spacing */
+
+
+/* 1. Reset and global styles */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* Basic page styling */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f7fb;
-  color: #1f2937;
-  line-height: 1.6;
+    font-family: "Segoe UI", Arial, sans-serif;
+    line-height: 1.7;
+    color: #1e293b;
+    background: linear-gradient(135deg, #f5f3ff, #eff6ff, #f8fafc);
 }
 
-/* Main content container */
+a {
+    transition: color 0.2s ease, background-color 0.2s ease,
+                box-shadow 0.2s ease, transform 0.2s ease;
+}
+
 .container {
-  width: 90%;
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 30px 0;
+    width: min(92%, 1150px);
+    margin: 0 auto;
+    padding: 45px 0 60px;
 }
 
-/* Main page heading */
+h1,
+h2,
+h3 {
+    line-height: 1.3;
+}
+
 h1 {
-  text-align: center;
-  margin-bottom: 30px;
-  color: #1e3a8a;
+    margin-bottom: 40px;
+    color: #312e81;
+    text-align: center;
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -1px;
 }
 
-/* Navigation bar */
+.features h2,
+.notifications h2,
+.gallery h2,
+.long-course h2,
+.about-content h2 {
+    margin-bottom: 24px;
+    color: #312e81;
+    font-size: 1.7rem;
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+/* 2. Sticky navigation */
 .navbar {
-  background-color: #172554;
-  color: white;
-  padding: 16px 5%;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 16px 5%;
+    color: #fff;
+    background: linear-gradient(120deg, #1e1b4b, #312e81);
+    box-shadow: 0 5px 20px rgba(30, 27, 75, 0.16);
 }
 
-/* Website logo */
 .logo {
-  color: white;
-  text-decoration: none;
-  font-size: 22px;
-  font-weight: bold;
+    color: #fff;
+    font-size: 1.4rem;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
 }
 
-/* Navigation links container */
 .nav-links {
-  display: flex;
-  gap: 28px;
-  list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 28px;
+    list-style: none;
 }
 
-/* Individual navigation links */
 .nav-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 15px;
-  transition: color 0.3s ease;
+    color: #e0e7ff;
+    font-size: 0.95rem;
+    text-decoration: none;
 }
 
-/* Hover effect */
-.nav-links a:hover {
-  color: #93c5fd;
+.nav-links a:hover,
+.nav-links a:focus-visible {
+    color: #c4b5fd;
 }
+
+/* 3. Student profile card */
 .profile-card {
-  position: relative;
-  max-width: 450px;
-  margin: 0 auto;
-  padding: 35px 25px;
-  background-color: white;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    position: relative;
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 45px 30px 35px;
+    overflow: hidden;
+    border: 1px solid rgba(148, 163, 184, 0.2);
+    border-top: 4px solid #7c3aed;
+    border-radius: 20px;
+    background: #fff;
+    text-align: center;
+    box-shadow: 0 10px 35px rgba(49, 46, 129, 0.09);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.profile-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 38px rgba(49, 46, 129, 0.14);
+}
+
+.badge {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    padding: 4px 12px;
+    border-radius: 999px;
+    color: #fff;
+    background: #dc2626;
+    font-size: 0.75rem;
+    font-weight: 700;
 }
 
 .profile-image {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 16px;
+    border: 5px solid #ede9fe;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 5px 15px rgba(124, 58, 237, 0.15);
 }
+
+.profile-card h2 {
+    margin-bottom: 5px;
+    color: #1e1b4b;
+    font-size: 1.5rem;
+}
+
+.course-name {
+    margin-bottom: 12px;
+    color: #6d28d9;
+    font-weight: 700;
+}
+
+.description {
+    margin-bottom: 20px;
+    color: #64748b;
+}
+
 .profile-button {
-  display: inline-block;
-  margin-top: 20px;
-  padding: 10px 25px;
-  background-color: #2563eb;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  text-decoration: none;
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 999px;
+    color: #fff;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(99, 102, 241, 0.25);
 }
-.badge {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background-color: #dc2626;
-  color: white;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: bold;
+
+.profile-button:hover,
+.profile-button:focus-visible {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #6d28d9, #4338ca);
 }
-/* Features section */
+
+/* 4. Feature cards */
 .features {
-  margin-top: 50px;
+    margin-top: 60px;
 }
 
-.features h2 {
-  text-align: center;
-  margin-bottom: 25px;
-  color: #172554;
-}
-
-/* Three-column layout */
 .feature-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
 }
 
-/* Individual feature card */
 .feature-card {
-  background-color: white;
-  padding: 25px;
-  border-radius: 12px;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    position: relative;
+    overflow: hidden;
+    padding: 28px 24px;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    background: #fff;
+    text-align: left;
+    box-shadow: 0 8px 25px rgba(49, 46, 129, 0.06);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.feature-card::before {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #7c3aed, #818cf8);
+    content: "";
+}
+
+.feature-card:nth-child(2)::before {
+    background: linear-gradient(90deg, #2563eb, #38bdf8);
+}
+
+.feature-card:nth-child(3)::before {
+    background: linear-gradient(90deg, #059669, #34d399);
 }
 
 .feature-card h3 {
-  color: #2563eb;
-  margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 10px 0 12px;
+    color: #1e293b;
+    font-size: 1.1rem;
+}
+
+.feature-card h3::before {
+    display: inline-flex;
+    flex: 0 0 44px;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+    color: #6d28d9;
+    background: #ede9fe;
+    font-size: 1.35rem;
+    content: "▶";
+}
+
+.feature-card:nth-child(2) h3::before {
+    color: #1d4ed8;
+    background: #dbeafe;
+    content: "✓";
+}
+
+.feature-card:nth-child(3) h3::before {
+    color: #047857;
+    background: #d1fae5;
+    content: "▤";
 }
 
 .feature-card p {
-  color: #64748b;
+    margin: 0;
+    color: #64748b;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(49, 46, 129, 0.12);
+}
+
+/* 5. Latest notifications */
+.notifications {
+    margin-top: 60px;
+    padding: 28px;
+    border: 1px solid #e5e7eb;
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 10px 35px rgba(49, 46, 129, 0.07);
+}
+
+.notifications h2 {
+    margin-bottom: 6px;
+}
+
+.notification-box {
+    height: 260px;
+    max-width: none;
+    margin-top: 20px;
+    padding: 0 12px 0 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-color: #a5b4fc #f1f5f9;
+    scrollbar-width: thin;
+}
+
+.notification-box p {
+    position: relative;
+    margin-bottom: 10px;
+    padding: 16px 18px 16px 22px;
+    border: 1px solid #eef2ff;
+    border-radius: 14px;
+    color: #334155;
+    background: #f8faff;
+    line-height: 1.6;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.notification-box p::before {
+    position: absolute;
+    top: 15px;
+    bottom: 15px;
+    left: 0;
+    width: 4px;
+    border-radius: 4px;
+    background: #818cf8;
+    content: "";
+}
+
+.notification-box p:nth-child(3n + 2)::before {
+    background: #34d399;
+}
+
+.notification-box p:nth-child(3n)::before {
+    background: #fbbf24;
+}
+
+.notification-box p:hover {
+    border-color: #c7d2fe;
+    background: #eef2ff;
+}
+
+/* 6. Gallery */
+.gallery {
+    margin-top: 60px;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.gallery-grid img {
+    display: block;
+    width: 100%;
+    height: 200px;
+    border: 3px solid #fff;
+    border-radius: 16px;
+    object-fit: cover;
+    box-shadow: 0 8px 22px rgba(49, 46, 129, 0.08);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.gallery-grid img:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 12px 28px rgba(49, 46, 129, 0.15);
+}
+
+/* 7. Long course title */
+.long-course {
+    margin-top: 60px;
+}
+
+.course-title-container {
+    padding: 20px;
+    overflow-x: auto;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 25px rgba(49, 46, 129, 0.06);
+    scrollbar-color: #a5b4fc #f1f5f9;
+    scrollbar-width: thin;
+}
+
+.course-title-container p {
+    min-width: max-content;
+    color: #5b21b6;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+/* 8. Scrollable page content */
+.about-content {
+    margin-top: 60px;
+}
+
+.about-content p {
+    margin-bottom: 12px;
+    padding: 15px 20px;
+    border: 1px solid #e8e7f5;
+    border-radius: 12px;
+    color: #475569;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 3px 12px rgba(49, 46, 129, 0.035);
+}
+
+/* 9. Floating help button */
+.help-button {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 1001;
+    padding: 12px 22px;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    border-radius: 999px;
+    color: #fff;
+    background: linear-gradient(135deg, #7c3aed, #4f46e5);
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 7px 20px rgba(79, 70, 229, 0.3);
+}
+
+.help-button:hover,
+.help-button:focus-visible {
+    transform: translateY(-3px);
+    background: linear-gradient(135deg, #6d28d9, #4338ca);
+}
+
+/* 10. Footer */
+.footer {
+    margin-top: 50px;
+    padding: 35px 5%;
+    color: #fff;
+    background: linear-gradient(135deg, #1e1b4b, #312e81);
+    text-align: center;
+}
+
+.footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px 25px;
+    margin-top: 10px;
+}
+
+.footer a {
+    color: #c7d2fe;
+    text-decoration: none;
+}
+
+.footer a:hover,
+.footer a:focus-visible {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* 11. Keyboard accessibility and reduced motion */
+a:focus-visible {
+    outline: 3px solid #a5b4fc;
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
+
+/* 12. Tablet layout */
+@media (max-width: 800px) {
+    .navbar {
+        padding-right: 4%;
+        padding-left: 4%;
+    }
+
+    .nav-links {
+        gap: 10px 16px;
+    }
+
+    .feature-container,
+    .gallery-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* 13. Mobile layout */
+@media (max-width: 550px) {
+    .container {
+        width: 92%;
+        padding-top: 30px;
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 14px 4%;
+    }
+
+    .nav-links {
+        justify-content: center;
+        gap: 8px 16px;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        margin-bottom: 30px;
+    }
+
+    .feature-container,
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        padding: 42px 20px 28px;
+    }
+
+    .notifications {
+        padding: 18px;
+    }
+
+    .notification-box {
+        height: 260px;
+    }
+
+    .gallery-grid img {
+        height: 220px;
+    }
+
+    .footer nav {
+        gap: 10px 18px;
+    }
+
+    .help-button {
+        right: 16px;
+        bottom: 16px;
+    }
 }
