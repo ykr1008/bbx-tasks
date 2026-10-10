@@ -51,10 +51,13 @@
 
         <div class="about-row">
           <div class="about-image">
-            <img
-              src="images/flower-banner.jpg"
-              alt="Beautiful flowers from our flower shop"
-            />
+            <video controls muted playsinline preload="metadata">
+              <source src="images/flower-video.mp4" type="video/mp4" />
+              Sorry, your browser does not support embedded videos.
+            </video>
+            <div class="video-title">
+              <h3>Best Flower Sellers</h3>
+            </div>
             <h3>Fresh Flowers, Happy Moments</h3>
           </div>
 
@@ -78,23 +81,27 @@
 
         <div class="benefits">
           <div class="benefit">
-            <h3>🚚 Free Delivery</h3>
-            <p>On qualifying orders</p>
+            <div class="benefit-icon">🚚</div>
+            <h3>Free Delivery</h3>
+            <p>On All Orders</p>
           </div>
 
           <div class="benefit">
-            <h3>🌸 Fresh Flowers</h3>
-            <p>Carefully selected blooms</p>
+            <div class="benefit-icon">↩️</div>
+            <h3>10 Days Returns</h3>
+            <p>Moneyback Guarantee</p>
           </div>
 
           <div class="benefit">
-            <h3>🎁 Beautiful Gifts</h3>
-            <p>For every special occasion</p>
+            <div class="benefit-icon">🎁</div>
+            <h3>Offer & Gifts</h3>
+            <p>On All Orders</p>
           </div>
 
           <div class="benefit">
-            <h3>🔒 Secure Payment</h3>
-            <p>A simple, secure checkout experience</p>
+            <div class="benefit-icon">🔒</div>
+            <h3>Secure Payments</h3>
+            <p>Protected By PayPal</p>
           </div>
         </div>
       </section>
@@ -107,7 +114,7 @@
             <span class="discount">-10%</span>
             <div class="product-image">
               <img
-                src="images/flower-banner.jpg"
+                src="images/pink-flower.jpg"
                 alt="Fresh pink flower bouquet"
               />
             </div>
@@ -121,10 +128,7 @@
           <article class="product-card">
             <span class="discount">-15%</span>
             <div class="product-image">
-              <img
-                src="images/flower-banner.jpg"
-                alt="Beautiful rose bouquet"
-              />
+              <img src="images/rose.jpg" alt="Beautiful rose bouquet" />
             </div>
             <div class="product-info">
               <h3>Rose Bouquet</h3>
@@ -136,10 +140,7 @@
           <article class="product-card">
             <span class="discount">-8%</span>
             <div class="product-image">
-              <img
-                src="images/flower-banner.jpg"
-                alt="Elegant flower arrangement"
-              />
+              <img src="images/mix.jpg" alt="Elegant flower arrangement" />
             </div>
             <div class="product-info">
               <h3>Elegant Flower Mix</h3>
@@ -151,10 +152,7 @@
           <article class="product-card">
             <span class="discount">-12%</span>
             <div class="product-image">
-              <img
-                src="images/flower-banner.jpg"
-                alt="Decorative floral bouquet"
-              />
+              <img src="images/gift.jpg" alt="Decorative floral bouquet" />
             </div>
             <div class="product-info">
               <h3>Classic Floral Gift</h3>
@@ -162,8 +160,196 @@
               <button class="btn" type="button">Add to Cart</button>
             </div>
           </article>
+          <article class="product-card">
+            <span class="discount">-18%</span>
+            <div class="product-image">
+              <img
+                src="images/flower-banner.jpg"
+                alt="Pink floral arrangement"
+              />
+            </div>
+            <div class="product-info">
+              <h3>Pink Blossom</h3>
+              <div class="price">₹899 <span>₹1,099</span></div>
+              <button class="btn" type="button">Add to Cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <span class="discount">-10%</span>
+            <div class="product-image">
+              <img src="images/flower-banner.jpg" alt="White flower bouquet" />
+            </div>
+            <div class="product-info">
+              <h3>White Elegance</h3>
+              <div class="price">₹999 <span>₹1,110</span></div>
+              <button class="btn" type="button">Add to Cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <span class="discount">-15%</span>
+            <div class="product-image">
+              <img
+                src="images/flower-banner.jpg"
+                alt="Colorful mixed flower bouquet"
+              />
+            </div>
+            <div class="product-info">
+              <h3>Rainbow Bouquet</h3>
+              <div class="price">₹1,199 <span>₹1,410</span></div>
+              <button class="btn" type="button">Add to Cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <span class="discount">-12%</span>
+            <div class="product-image">
+              <img
+                src="images/flower-banner.jpg"
+                alt="Red roses arranged as a gift"
+              />
+            </div>
+            <div class="product-info">
+              <h3>Romantic Roses</h3>
+              <div class="price">₹1,299 <span>₹1,476</span></div>
+              <button class="btn" type="button">Add to Cart</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <span class="discount">-20%</span>
+            <div class="product-image">
+              <img
+                src="images/flower-banner.jpg"
+                alt="Decorative seasonal flowers"
+              />
+            </div>
+            <div class="product-info">
+              <h3>Seasonal Delight</h3>
+              <div class="price">₹799 <span>₹999</span></div>
+              <button class="btn" type="button">Add to Cart</button>
+            </div>
+          </article>
+        </div>
+      </section>
+      <!-- Reviews section -->
+      <section class="reviews" id="reviews">
+        <h2 class="section-title">Customer <span>Reviews</span></h2>
+
+        <div class="review-grid">
+          <article class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>
+              The flowers were fresh and beautiful. The bouquet made my special
+              day even more memorable!
+            </p>
+            <h3>Ananya</h3>
+            <span>Happy Customer</span>
+          </article>
+
+          <article class="review-card">
+            <div class="stars" aria-label="5 out of 5 stars">★★★★★</div>
+            <p>
+              Excellent quality and lovely presentation. I would definitely
+              order flowers here again.
+            </p>
+            <h3>Rahul</h3>
+            <span>Happy Customer</span>
+          </article>
+
+          <article class="review-card">
+            <div class="stars" aria-label="4 out of 5 stars">★★★★☆</div>
+            <p>
+              Beautiful arrangements and a great gift option. The flowers looked
+              wonderful!
+            </p>
+            <h3>Meera</h3>
+            <span>Happy Customer</span>
+          </article>
+        </div>
+      </section>
+      <!-- Contact section -->
+      <section class="contact" id="contact">
+        <h2 class="section-title"><span>Contact</span> Us</h2>
+
+        <div class="contact-container">
+          <form class="contact-form" action="#" method="post">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Your Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Your Phone</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Enter your phone number"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Your Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                placeholder="Write your message"
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn">Send Message</button>
+          </form>
         </div>
       </section>
     </main>
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="#home" class="logo">flower<span>.</span></a>
+          <p>Fresh flowers for life's beautiful moments.</p>
+        </div>
+
+        <div class="footer-links">
+          <h3>Quick Links</h3>
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#products">Products</a>
+          <a href="#reviews">Reviews</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer-contact">
+          <h3>Get in Touch</h3>
+          <p>Email: hello@example.com</p>
+          <p>Phone: +91 98765 43210</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 Flower Shop. All rights reserved.</p>
+      </div>
+    </footer>
   </body>
 </html>

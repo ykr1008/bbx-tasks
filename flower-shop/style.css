@@ -199,18 +199,21 @@ body {
 }
 
 /* Benefits row */
+
 .benefits {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-  margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
 }
 
 .benefit {
-  padding: 25px 15px;
-  background-color: #fff5f8;
-  border-radius: 8px;
-  text-align: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.benefit-icon {
+    font-size: 32px;
+    margin-bottom: 10px;
 }
 
 .benefit h3 {
@@ -233,7 +236,7 @@ body {
 /* Responsive product grid */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 25px;
 }
 
@@ -313,4 +316,281 @@ body {
 .product-info .btn {
   border: none;
   cursor: pointer;
+}
+
+/* Reviews section */
+.reviews {
+  padding: 60px 7%;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+}
+
+.review-card {
+  padding: 30px 25px;
+  border: 1px solid #f2e5eb;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+  transform: translateY(-5px);
+}
+
+.stars {
+  color: #f5a623;
+  font-size: 1.3rem;
+  letter-spacing: 3px;
+  margin-bottom: 15px;
+}
+
+.review-card p {
+  color: #666;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.review-card h3 {
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.review-card span {
+  color: #999;
+  font-size: 0.9rem;
+}
+
+.about-image video {
+  display: block;
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 8px;
+  background-color: #fff5f8;
+}
+
+.video-title {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  padding: 20px 10px;
+  background-color: rgba(255, 255, 255, 0.85);
+  text-align: center;
+  z-index: 2;
+}
+
+.video-title h3 {
+  margin: 0;
+  color: #333;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* Contact section */
+.contact {
+  padding: 60px 7%;
+  background-color: #fffafd;
+}
+
+.contact-container {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 35px;
+  background-color: #fff;
+  border: 1px solid #f2e5eb;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  color: #333;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 13px 15px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font: inherit;
+  color: #333;
+  background-color: #fff;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: 2px solid #e84393;
+  outline-offset: 2px;
+  border-color: #e84393;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.contact-form .btn {
+  align-self: flex-start;
+  border: none;
+  cursor: pointer;
+}
+
+/* Footer */
+.site-footer {
+  padding: 45px 7% 0;
+  background-color: #fff5f8;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 40px;
+  padding-bottom: 35px;
+}
+
+.footer-brand p,
+.footer-contact p {
+  margin-top: 12px;
+  color: #666;
+  line-height: 1.7;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-links h3,
+.footer-contact h3 {
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.footer-links a {
+  width: fit-content;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #e84393;
+}
+
+.footer-bottom {
+  padding: 20px 0;
+  border-top: 1px solid #eadde3;
+  text-align: center;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* Tablet layout */
+@media (max-width: 900px) {
+  .site-header {
+    padding: 18px 4%;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .navbar {
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .about,
+  .products,
+  .reviews,
+  .contact {
+    padding: 45px 4%;
+  }
+
+  .about-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .about-image,
+  .about-content {
+    width: 100%;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .benefits {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .review-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+  .site-header {
+    justify-content: center;
+  }
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .header-icons {
+    justify-content: center;
+  }
+
+  .hero {
+    min-height: 70vh;
+    padding: 35px 5%;
+    background-position: center;
+  }
+
+  .product-grid,
+  .benefits,
+  .review-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+
+  .about-image img,
+  .about-image video {
+    height: 250px;
+  }
+
+  .contact-container {
+    padding: 22px 16px;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
 }
