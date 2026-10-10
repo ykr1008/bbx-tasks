@@ -1,56 +1,70 @@
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Student Profile Dashboard">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Student Profile Dashboard" />
     <title>Student Profile Dashboard</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <!-- Navigation bar -->
     <nav class="navbar">
-        <a href="#" class="logo">StudentHub</a>
+      <a href="#" class="logo">StudentHub</a>
 
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#courses">Courses</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#courses">Courses</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
 
     <!-- Main page content -->
     <main class="container">
+      <h1>Student Profile Dashboard</h1>
 
-        <h1>Student Profile Dashboard</h1>
+      <!-- Student profile card -->
+      <section class="profile-card" id="home">
+        <span class="badge">New</span>
 
-        <!-- Student profile card -->
-        <section class="profile-card" id="home">
+        <img
+          src="https://placehold.co/120x120"
+          alt="Student profile"
+          class="profile-image"
+        />
 
-            <span class="badge">New</span>
+        <h2>Alex Johnson</h2>
+        <p class="course-name">Full Stack Web Development</p>
 
-            <img
-                src="https://placehold.co/120x120"
-                alt="Student profile"
-                class="profile-image"
-            >
+        <p class="description">
+          Passionate about web development, problem-solving, and building
+          creative digital experiences.
+        </p>
 
-            <h2>Alex Johnson</h2>
-            <p class="course-name">Full Stack Web Development</p>
+        <a href="#about" class="profile-button">View Profile</a>
+      </section>
+      <!-- Features section -->
+      <section class="features" id="courses">
+        <h2>Our Features</h2>
 
-            <p class="description">
-                Passionate about web development, problem-solving,
-                and building creative digital experiences.
-            </p>
+        <div class="feature-container">
+          <article class="feature-card">
+            <h3>Online Classes</h3>
+            <p>Learn from anywhere with interactive online classes.</p>
+          </article>
 
-            <a href="#about" class="profile-button">View Profile</a>
+          <article class="feature-card">
+            <h3>Mock Tests</h3>
+            <p>Test your knowledge and prepare for examinations.</p>
+          </article>
 
-        </section>
-
+          <article class="feature-card">
+            <h3>Study Materials</h3>
+            <p>Access organized notes and learning resources.</p>
+          </article>
+        </div>
+      </section>
     </main>
-
-</body>
+  </body>
 </html>
