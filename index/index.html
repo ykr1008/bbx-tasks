@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BBX Tasks</title>
+    <meta
+      name="description"
+      content="Different tasks done by me in a single page"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="logo">BBX</div>
+      <nav class="nav">
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li class="dropdown">
+            <a href="#">Projects</a>
+
+            <ul class="dropdown-menu">
+              <li><a href="#main">Main</a></li>
+              <li><a href="#html">HTML</a></li>
+              <li><a href="#css">CSS</a></li>
+              <li><a href="#javascript">JavaScript</a></li>
+            </ul>
+          </li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h1>Projects</h1>
+
+      <section class="projects" id="main">
+        <h2>Main</h2>
+        <div class="project-card">
+          <a class="project" href="#" target="_blank" rel="noopener">
+            <h3>Swiggy Clone</h3>
+            <p>Description of Swiggy Clone.</p>
+          </a>
+          <a class="project" href="#" target="_blank" rel="noopener">
+            <h3>ChatGPT Window</h3>
+            <p>HTML/CSS</p>
+          </a>
+          <a class="project" href="#" target="_blank" rel="noopener">
+            <h3>Project 3</h3>
+            <p>Description of Project 3.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="projects" id="html">
+        <h2>HTML</h2>
+        <div class="project-card">
+          <a
+            class="project"
+            href="https://ykr1008.github.io/Frontend-Development/"
+            target="_blank"
+            rel="noopener"
+          >
+            <h3>Project 4</h3>
+            <p>Description of Project 4.</p>
+          </a>
+          <a
+            class="project"
+            href="https://ykr1008.github.io/Frontend-Development/"
+            target="_blank"
+            rel="noopener"
+          >
+            <h3>Project 5</h3>
+            <p>Description of Project 5.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="projects" id="css">
+        <h2>CSS</h2>
+        <div class="project-card">
+          <a
+            class="project"
+            href="https://ykr1008.github.io/CSS/"
+            target="_blank"
+            rel="noopener"
+          >
+            <h3>CSS Page</h3>
+            <p>Description of Project 6.</p>
+          </a>
+          <a
+            class="project"
+            href="https://ykr1008.github.io/CSS/"
+            target="_blank"
+            rel="noopener"
+          >
+            <h3>Project 7</h3>
+            <p>Description of Project 7.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="projects" id="javascript">
+        <h2>JavaScript</h2>
+        <div class="project-card">
+          <a class="project" href="#" target="_blank" rel="noopener">
+            <h3>Project 8</h3>
+            <p>Description of Project 8.</p>
+          </a>
+          <a class="project" href="#" target="_blank" rel="noopener">
+            <h3>Project 9</h3>
+            <p>Description of Project 9.</p>
+          </a>
+          <a class="project" href="#" target="_blank" rel="noopener">
+            <h3>Project 10</h3>
+            <p>Description of Project 10.</p>
+          </a>
+          <a class="project" href="#" target="_blank" rel="noopener">
+            <h3>Project 11</h3>
+            <p>Description of Project 11.</p>
+          </a>
+          <a class="project" href="#" target="_blank" rel="noopener">
+            <h3>Project 12</h3>
+            <p>Description of Project 12.</p>
+          </a>
+        </div>
+      </section>
+    </main>
+    <footer class="footer" id="contact">
+      <div class="footer-top">
+        <div class="footer-cta">
+          <p class="footer-label">Have a project in mind? Send me a message.</p>
+
+          <form
+            class="contact-form"
+            action="https://formspree.io/f/YOUR_ID"
+            method="POST"
+            novalidate
+          >
+            <div class="form-row">
+              <div class="field">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required />
+                <span class="error"></span>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required />
+                <span class="error"></span>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" required />
+              <span class="error"></span>
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="5"
+                required
+              ></textarea>
+              <span class="error"></span>
+            </div>
+
+            <button type="submit">Send message</button>
+          </form>
+        </div>
+
+        <ul class="footer-links">
+          <li>
+            <a
+              href="https://github.com/your-username"
+              target="_blank"
+              rel="noopener"
+              >GitHub</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://linkedin.com/in/your-username"
+              target="_blank"
+              rel="noopener"
+              >LinkedIn</a
+            >
+          </li>
+          <li><a href="#main">Projects</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Your Name</p>
+        <a href="#">Back to top ↑</a>
+      </div>
+    </footer>
+  </body>
+</html>

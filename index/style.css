@@ -1,0 +1,332 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  background-color: #000000;
+}
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #000;
+  color: #fff;
+  padding: 1rem 4rem;
+  position: sticky;
+  top: 0;
+  border-bottom: 1px solid #87238e;
+  z-index: 1000;
+}
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  align-items: left;
+}
+header a,
+li {
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.5rem;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 2rem;
+}
+/* Parent dropdown */
+.dropdown {
+  position: relative;
+}
+
+/* Dropdown menu hidden by default */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  background-color: #000;
+  min-width: 150px;
+  padding: 10px 0;
+  margin: 0;
+
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Show menu when hovering over Projects */
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+/* Dropdown links */
+.dropdown-menu li {
+  width: 100%;
+  border-bottom: 1px solid #333;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  white-space: nowrap;
+  font-size: 1rem;
+  font-family: times new roman;
+}
+
+/* Hover effect on individual links */
+.dropdown-menu a:hover {
+  background-color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #fff;
+  font-size: 6rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  font-family: "algerian", sans-serif;
+  font-weight: 400;
+}
+
+h2 {
+  text-align: left;
+  color: #fff;
+  font-size: 3rem;
+  margin-top: 1rem;
+  text-transform: uppercase;
+  font-family: "arial", sans-serif;
+  font-weight: 700;
+  padding-left: 1rem;
+  margin-bottom: 0.5rem;
+  border-left: 5px solid #87238e;
+  border-radius: 2px;
+}
+
+.projects {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  scroll-margin-top: 90px;
+}
+
+.project-card {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 0rem;
+}
+
+.project {
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  padding: 1rem;
+  width: auto;
+  text-align: center;
+  border: 1px solid #333;
+  display: block;
+  color: inherit;
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease-in-out,
+    background-color 0.2s ease-in-out,
+    box-shadow 0.2s ease-in-out;
+}
+a.project,
+a.project:hover,
+a.project:visited {
+  color: inherit;
+  text-decoration: none;
+}
+.project:hover {
+  transform: translateY(-5px);
+  background-color: #242424;
+  box-shadow: 0 10px 20px rgba(135, 35, 142, 0.5);
+}
+
+.project h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+  font-family: "arial", sans-serif;
+}
+
+#contact h2 {
+  --line: #2ecc71;
+} /* pick any colour */
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.contact-form label {
+  color: #fff;
+  font-size: 1rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 0.8rem;
+  background-color: #1a1a1a;
+  color: #fff;
+  border: 1px solid #87238e;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #b04bb8;
+  box-shadow: 0 0 10px rgba(135, 35, 142, 0.5);
+}
+
+.contact-form button {
+  align-self: flex-start;
+  padding: 0.8rem 2rem;
+  background-color: #87238e;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.contact-form button:hover {
+  background-color: #a02aa8;
+  transform: translateY(-2px);
+}
+.footer-cta {
+  flex: 1 1 400px;
+  max-width: 600px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+@media (max-width: 700px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}
+.footer {
+  margin-top: 4rem;
+  padding: 5rem 4rem 2rem;
+  background-color: #050505;
+  border-top: 1px solid #2a2a2a;
+  scroll-margin-top: 90px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding-bottom: 4rem;
+  align-items: flex-start;
+}
+
+.footer-label {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  color: #888;
+}
+
+.footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-links a {
+  display: inline-block;
+  font-size: 1.2rem;
+  color: #fff;
+  text-decoration: none;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.footer-links a::after {
+  content: " ↗";
+  color: #87238e;
+}
+
+.footer-links a:hover {
+  color: #b04bb8;
+  transform: translateX(6px);
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid #2a2a2a;
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer-bottom a {
+  color: #777;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease;
+}
+
+.footer-bottom a:hover {
+  color: #fff;
+}
+
+@media (max-width: 700px) {
+  .footer {
+    padding: 3rem 1.5rem 1.5rem;
+  }
+}
