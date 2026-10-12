@@ -1,4 +1,3 @@
-
 /* 1. Reset and basic styles */
 * {
   margin: 0;
@@ -13,7 +12,7 @@ html {
 
 body {
   min-width: 320px;
-  background: #FFFFFF;
+  background: #ffffff;
 }
 
 a {
@@ -37,7 +36,7 @@ input {
 .promo-panel {
   position: relative;
   min-width: 0;
-  border-right: 2px solid #E4E6EB;
+  border-right: 2px solid #e4e6eb;
   padding: 48px;
 }
 
@@ -50,27 +49,12 @@ input {
   padding: 48px 56px;
 }
 
-/* 5. Login content width */
 .login-content {
   width: 100%;
   max-width: 600px;
 }
 
-/* 6. Footer foundation */
-.page-footer {
-  min-height: 150px;
-  padding: 35px 24px 20px;
-  border-top: 2px solid #E4E6EB;
-  background: #FFFFFF;
-}
-
-.footer-inner {
-  max-width: 1180px;
-  margin: 0 auto;
-}
-
-
-/* Facebook logo */
+/* 5. Facebook logo */
 .facebook-logo {
   display: flex;
   align-items: center;
@@ -78,9 +62,8 @@ input {
   width: 66px;
   height: 66px;
   border-radius: 50%;
-  background: #0866FF;
-  color: #FFFFFF;
-  font-family: Arial, Helvetica, sans-serif;
+  background: #0866ff;
+  color: #ffffff;
   font-size: 62px;
   font-weight: 700;
   line-height: 1;
@@ -89,7 +72,7 @@ input {
   padding-right: 4px;
 }
 
-/* Promotional content layout */
+/* 6. Promotional content */
 .promo-content {
   position: absolute;
   top: 50%;
@@ -98,7 +81,6 @@ input {
   transform: translateY(-35%);
 }
 
-/* Promotional headline */
 .promo-copy {
   position: relative;
   z-index: 2;
@@ -114,175 +96,8 @@ input {
 }
 
 .promo-copy h1 span {
-  color: #0866FF;
+  color: #0866ff;
 }
-
-
-/* Login heading */
-.login-content h2 {
-  margin-bottom: 26px;
-  font-size: 19px;
-  font-weight: 600;
-  line-height: 1.4;
-}
-
-/* Login form layout */
-.login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 13px;
-}
-
-/* Input fields */
-.login-form input {
-  width: 100%;
-  height: 66px;
-  padding: 0 18px;
-  border: 1px solid #CED0D4;
-  border-radius: 18px;
-  background: #FFFFFF;
-  color: #1C1E21;
-  font-size: 16px;
-  outline: none;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-
-.login-form input::placeholder {
-  color: #606770;
-  opacity: 1;
-}
-
-.login-form input:focus {
-  border-color: #0866FF;
-  box-shadow: 0 0 0 2px rgba(8, 102, 255, 0.12);
-}
-
-/* Visually hidden labels remain available to screen readers */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-/* Log in button */
-.login-button {
-  width: 100%;
-  height: 49px;
-  margin-top: 13px;
-  border: none;
-  border-radius: 999px;
-  background: #0866FF;
-  color: #FFFFFF;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.login-button:hover {
-  background: #075CE5;
-}
-
-/* Forgotten password */
-.forgot-link {
-  align-self: center;
-  margin-top: 11px;
-  color: #080809;
-  font-size: 16px;
-}
-
-.forgot-link:hover {
-  text-decoration: underline;
-}
-
-/* Create account button */
-.create-account-button {
-  width: 100%;
-  min-height: 49px;
-  margin-top: 58px;
-  border: 1px solid #0866FF;
-  border-radius: 999px;
-  background: #FFFFFF;
-  color: #0866FF;
-  font-size: 16px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-.create-account-button:hover {
-  background: #F0F5FF;
-}
-
-/* Keyboard accessibility */
-.login-form button:focus-visible,
-.login-form a:focus-visible {
-  outline: 3px solid #F7B928;
-  outline-offset: 3px;
-}
-
-
-/* Meta branding */
-.meta-brand {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 5px;
-  margin-top: 42px;
-  color: #65676B;
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: -0.5px;
-}
-
-.meta-symbol {
-  color: #0866FF;
-  font-size: 39px;
-  font-weight: 500;
-  line-height: 1;
-}
-
-/* Footer language links */
-.language-links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px 16px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #DADDE1;
-  color: #737373;
-  font-size: 12px;
-}
-
-.language-links a:hover,
-.footer-links a:hover {
-  text-decoration: underline;
-}
-
-/* Footer navigation */
-.footer-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 16px;
-  padding-top: 12px;
-  color: #737373;
-  font-size: 12px;
-  line-height: 1.4;
-}
-
-/* Consistent keyboard focus */
-.page-footer a:focus-visible {
-  outline: 2px solid #0866FF;
-  outline-offset: 3px;
-}
-
-
 
 .promo-art {
   position: absolute;
@@ -302,185 +117,174 @@ input {
   object-fit: contain;
 }
 
-.art-circle {
-  position: absolute;
-  width: 230px;
-  height: 230px;
-  top: 75px;
-  left: 65px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #E7F0FF, #B8D5FF);
+/* 7. Login form */
+.login-content h2 {
+  margin-bottom: 26px;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 1.4;
 }
 
-/* Shared style for floating cards */
-.floating-card {
-  position: absolute;
+.login-form {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.login-form input {
+  width: 100%;
+  height: 66px;
+  padding: 0 18px;
+  border: 1px solid #ced0d4;
   border-radius: 18px;
-  background: #FFFFFF;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  background: #ffffff;
+  color: #1c1e21;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-/* Message preview */
-.card-message {
-  top: 45px;
-  left: 5px;
-  width: 135px;
-  height: 75px;
-  gap: 10px;
-  transform: rotate(-8deg);
+.login-form input::placeholder {
+  color: #606770;
+  opacity: 1;
 }
 
-.message-icon {
+.login-form input:focus {
+  border-color: #0866ff;
+  box-shadow: 0 0 0 2px rgba(8, 102, 255, 0.12);
+}
+
+/* Labels stay available to screen readers */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.login-button {
+  width: 100%;
+  height: 49px;
+  margin-top: 13px;
+  border: none;
+  border-radius: 999px;
+  background: #0866ff;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.login-button:hover {
+  background: #075ce5;
+}
+
+.forgot-link {
+  align-self: center;
+  margin-top: 11px;
+  color: #080809;
+  font-size: 16px;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.create-account-button {
+  width: 100%;
+  min-height: 49px;
+  margin-top: 58px;
+  border: 1px solid #0866ff;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #0866ff;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-account-button:hover {
+  background: #f0f5ff;
+}
+
+.login-form button:focus-visible,
+.login-form a:focus-visible {
+  outline: 3px solid #f7b928;
+  outline-offset: 3px;
+}
+
+/* 8. Meta branding */
+.meta-brand {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background: #0866FF;
-  color: #FFFFFF;
+  gap: 5px;
+  margin-top: 42px;
+  color: #65676b;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -0.5px;
+}
+
+.meta-symbol {
+  color: #0866ff;
+  font-size: 39px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* 9. Footer */
+.page-footer {
+  min-height: 150px;
+  padding: 35px 24px 20px;
+  border-top: 2px solid #e4e6eb;
+  background: #ffffff;
+}
+
+.footer-inner {
+  max-width: 1180px;
+  margin: 0 auto;
+}
+
+.language-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #dadde1;
+  color: #737373;
   font-size: 12px;
 }
 
-.message-lines {
+.footer-links {
   display: flex;
-  flex-direction: column;
-  gap: 7px;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding-top: 12px;
+  color: #737373;
+  font-size: 12px;
+  line-height: 1.4;
 }
 
-.message-lines span {
-  display: block;
-  width: 48px;
-  height: 6px;
-  border-radius: 10px;
-  background: #E4E6EB;
+.language-links a:hover,
+.footer-links a:hover {
+  text-decoration: underline;
 }
 
-.message-lines span:last-child {
-  width: 32px;
+.page-footer a:focus-visible {
+  outline: 2px solid #0866ff;
+  outline-offset: 3px;
 }
 
-/* Small landscape illustration */
-.card-photo {
-  top: 130px;
-  left: 35px;
-  width: 115px;
-  height: 125px;
-  overflow: hidden;
-  background: linear-gradient(#B9DEFF 0 55%, #E5F4D9 55%);
-  transform: rotate(-7deg);
-}
-
-.photo-sun {
-  position: absolute;
-  top: 17px;
-  right: 18px;
-  width: 23px;
-  height: 23px;
-  border-radius: 50%;
-  background: #FFD66B;
-}
-
-.photo-hill {
-  position: absolute;
-  bottom: -22px;
-  left: -10px;
-  width: 100px;
-  height: 75px;
-  border-radius: 50% 50% 0 0;
-  background: #4CA879;
-  transform: rotate(-15deg);
-}
-
-.photo-hill::after {
-  position: absolute;
-  content: "";
-  width: 90px;
-  height: 65px;
-  left: 55px;
-  top: 15px;
-  border-radius: 50% 50% 0 0;
-  background: #77C99B;
-}
-
-/* Floating reactions */
-.card-reaction {
-  top: 35px;
-  right: 5px;
-  gap: 8px;
-  padding: 13px;
-  border-radius: 999px;
-  font-size: 23px;
-  transform: rotate(7deg);
-}
-
-/* Facebook notification */
-.card-notification {
-  right: 5px;
-  top: 145px;
-  width: 90px;
-  height: 75px;
-  transform: rotate(8deg);
-}
-
-.notification-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  background: #0866FF;
-  color: #FFFFFF;
-  font-size: 35px;
-  font-weight: 700;
-}
-
-.notification-dot {
-  position: absolute;
-  top: 8px;
-  right: 14px;
-  width: 13px;
-  height: 13px;
-  border: 2px solid #FFFFFF;
-  border-radius: 50%;
-  background: #FA383E;
-}
-
-/* Simple profile illustration */
-.card-profile {
-  bottom: 15px;
-  left: 125px;
-  width: 100px;
-  height: 115px;
-  overflow: hidden;
-  background: #FDE6D5;
-  transform: rotate(5deg);
-}
-
-.profile-head {
-  position: absolute;
-  top: 18px;
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background: #C6865A;
-}
-
-.profile-body {
-  position: absolute;
-  bottom: -15px;
-  width: 75px;
-  height: 60px;
-  border-radius: 40px 40px 0 0;
-  background: #0866FF;
-}
-
-
-/* Responsive layout */
+/* 10. Responsive layout */
 @media (max-width: 900px) {
   .login-page {
     grid-template-columns: 1fr;
