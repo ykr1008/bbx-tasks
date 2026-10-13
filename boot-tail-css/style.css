@@ -1,0 +1,93 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+}
+
+main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cards {
+    display: flex;
+    justify-content: center;
+}
+
+.card-1 {
+    width: 300px;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.12);
+    text-align: center;
+}
+.card-1 h2 {
+    font-size: 30px;
+    color: #292929;
+    margin-bottom: 16px;
+}
+.card-1 span {
+    display: block;
+    font-size: 16px;
+    color: #777777;
+    margin-bottom: 28px;
+}
+
+.profile-btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: #1877f2;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.profile-btn:hover {
+    background-color: #0866ff;
+}
+
+
+.profile-icon {
+    width: 72px;
+    height: 72px;
+    display: block;
+    margin: 0 auto 16px;
+}
+
+
+
+.cards {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+
+
+.card-1,
+.cards > article {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+
+.card-1 .profile-btn,
+.cards > article > a {
+    margin-top: auto;
+}
+
+
