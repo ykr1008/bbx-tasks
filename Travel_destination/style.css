@@ -1010,23 +1010,25 @@ img {
   min-width: 110px;
 }
 .description-dialog {
-  width: min(920px, calc(100% - 30px));
+  width: min(980px, calc(100% - 30px));
   padding: 0;
 }
 .description-layout {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
-  min-height: 470px;
+  grid-template-columns: 1.05fr 0.95fr;
+  min-height: 0;
+  align-items: stretch;
 }
 .description-photo {
   position: relative;
-  min-height: 320px;
+  min-height: 360px;
+  height: min(76vh, 640px);
   overflow: hidden;
   background: #d5ddd2;
 }
 .description-photo img {
   height: 100%;
-  min-height: 320px;
+  min-height: 0;
   object-fit: cover;
 }
 .gallery-control {
@@ -1056,19 +1058,41 @@ img {
   font-size: 10px;
 }
 .description-copy {
-  align-self: center;
-  padding: 42px;
+  align-self: stretch;
+  max-height: min(76vh, 640px);
+  padding: 34px 32px;
+  overflow: auto;
 }
 .description-copy h2 {
-  margin-bottom: 8px;
+  margin-bottom: 5px;
 }
-.description-copy p:not(.eyebrow) {
+.description-location {
+  margin: 0 0 19px;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 11px;
 }
-.description-copy #description-attractions {
-  margin: 22px 0 25px;
-  line-height: 1.8;
+.description-section {
+  padding-block: 13px;
+  border-top: 1px solid var(--line);
+}
+.description-section h3 {
+  margin: 0 0 5px;
+  color: var(--forest);
+  font-size: 11px;
+  font-weight: 700;
+}
+.description-section p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.65;
+}
+.description-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
 }
 
 @keyframes hero-arrive {
@@ -1345,8 +1369,16 @@ img {
     min-height: 260px;
     max-height: 44vh;
   }
+  .description-photo {
+    height: 38vh;
+  }
+  .description-photo img {
+    height: 100%;
+  }
   .description-copy {
+    max-height: none;
     padding: 25px;
+    overflow: visible;
   }
   .description-copy h2 {
     font-size: 30px;

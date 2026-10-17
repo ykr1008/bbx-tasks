@@ -239,7 +239,27 @@
 
 	<dialog class="site-dialog description-dialog" id="description-dialog" aria-labelledby="description-title">
 		<form method="dialog"><button class="dialog-close" aria-label="Close destination description">×</button></form>
-		<div class="description-layout"><div class="description-photo"><img id="description-image" src="" alt=""><button class="gallery-control gallery-prev" type="button" aria-label="Previous image">←</button><button class="gallery-control gallery-next" type="button" aria-label="Next image">→</button><span class="gallery-count" id="gallery-count"></span></div><div class="description-copy"><p class="eyebrow">A closer look</p><h2 id="description-title"></h2><p id="description-location"></p><p id="description-attractions"></p><button class="button button-dark" type="button" data-close-dialog>Close</button></div></div>
+		<div class="description-layout">
+			<div class="description-photo">
+				<img id="description-image" src="" alt="">
+				<button class="gallery-control gallery-prev" type="button" aria-label="Previous image">←</button>
+				<button class="gallery-control gallery-next" type="button" aria-label="Next image">→</button>
+				<span class="gallery-count" id="gallery-count" aria-live="polite"></span>
+			</div>
+			<div class="description-copy">
+				<p class="eyebrow">A closer look</p>
+				<h2 id="description-title"></h2>
+				<p class="description-location" id="description-location"></p>
+				<section class="description-section"><h3>About</h3><p id="description-detail"></p></section>
+				<section class="description-section"><h3>Best time to visit</h3><p id="description-best-time"></p></section>
+				<section class="description-section"><h3>Nearby attractions</h3><p id="description-attractions"></p></section>
+				<section class="description-section"><h3>Travel tips</h3><p id="description-tips"></p></section>
+				<div class="description-actions">
+					<button class="button button-dark" id="description-ready" type="button">Ready to go <span aria-hidden="true">↗</span></button>
+					<button class="quiet-button" type="button" data-close-dialog>Close</button>
+				</div>
+			</div>
+		</div>
 	</dialog>
 
 	<dialog class="site-dialog" id="booking-package-dialog" aria-labelledby="booking-package-title">

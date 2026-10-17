@@ -30,8 +30,125 @@ const journeyDialog = document.querySelector("#journey-dialog");
 let galleryImages = [];
 let galleryIndex = 0;
 let activePackageCard = null;
+let descriptionCard = null;
 let bookingCard = null;
 let bookingPackageSelection = null;
+
+const destinationDetails = {
+  "destination-ponmudi": {
+    description: "A quiet hill escape in Kerala, Ponmudi pairs winding mountain roads with emerald tea slopes, forest trails, and cool, misty viewpoints.",
+    bestTime: "October to February",
+    tips: "Carry a light rain jacket, check road conditions before setting out, and start early for the clearest hill views.",
+    images: [
+      ["https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80", "Sunlight filtering through a green forest"],
+      ["https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80", "Rolling green hills in the Western Ghats"],
+    ],
+  },
+  "destination-munnar": {
+    description: "Munnar's high-altitude tea estates, cool air, and ridgeline walks make it an easy place to slow down and take in Kerala's highlands.",
+    bestTime: "September to March",
+    tips: "Pack a warm layer for early mornings, book popular park visits ahead, and allow extra time for the winding mountain roads.",
+    images: [
+      ["https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80", "Forest canopy in the hills"],
+      ["https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80", "Mountain ridges beneath a clear sky"],
+    ],
+  },
+  "destination-goa": {
+    description: "Goa moves between palm-lined beaches, Portuguese-era streets, lively markets, and quiet stretches of coast, with room for both late nights and slow mornings.",
+    bestTime: "November to February",
+    tips: "Reserve beach stays early in peak season, use licensed local transport, and dress respectfully when visiting churches and temples.",
+    images: [
+      ["https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1200&q=80", "Ocean waves breaking along the shore"],
+      ["https://images.unsplash.com/photo-1498307833015-e7b400441eb8?auto=format&fit=crop&w=1200&q=80", "Aerial view of a tropical coastline"],
+    ],
+  },
+  "destination-manali": {
+    description: "Set beside the Beas River and framed by the Himalayas, Manali offers pine-scented walks, old-town cafes, and easy access to high mountain valleys.",
+    bestTime: "March to June",
+    tips: "Check mountain-pass and weather updates before day trips, carry layers year-round, and keep buffer time for road journeys.",
+    images: [
+      ["https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80", "Wide mountain valley in soft light"],
+      ["https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80", "Still mountain lake surrounded by hills"],
+    ],
+  },
+  "destination-jaipur": {
+    description: "Jaipur layers rose-colored facades, royal courtyards, and bustling bazaars into a vivid introduction to Rajasthan's craft and history.",
+    bestTime: "October to March",
+    tips: "Visit forts early to avoid the midday heat, agree on prices before shopping, and choose comfortable shoes for uneven stone paths.",
+    images: [
+      ["https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?auto=format&fit=crop&w=1200&q=80", "Historic palace architecture in Rajasthan"],
+      ["https://images.unsplash.com/photo-1539650116574-75c0c0d145cc?auto=format&fit=crop&w=1200&q=80", "Ornate pink facade in Jaipur"],
+    ],
+  },
+  "destination-varanasi": {
+    description: "Varanasi is a city of riverfront rituals, narrow old lanes, and centuries-old temples, best experienced at an unhurried pace along the ghats.",
+    bestTime: "November to February",
+    tips: "Wear modest clothing at religious sites, ask before photographing people, and use a registered guide for boat trips and ceremonies.",
+    images: [
+      ["https://images.unsplash.com/photo-1606293926075-69a00dbfde81?auto=format&fit=crop&w=1200&q=80", "Historic buildings along the river"],
+      ["https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&w=1200&q=80", "Varanasi ghats beside the Ganges"],
+      ["https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=80", "Warmly lit historic Indian architecture"],
+      ["https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&w=1200&q=80", "Temple spires above an Indian city"],
+      ["https://images.unsplash.com/photo-1564760055775-d63b17a55c44?auto=format&fit=crop&w=1200&q=80", "Historic riverside architecture"],
+    ],
+  },
+  "destination-shillong": {
+    description: "Shillong's pine-covered hills, lively music scene, and nearby waterfalls offer a breezy base for exploring Meghalaya's dramatic landscapes.",
+    bestTime: "October to April",
+    tips: "Rain can arrive quickly, so bring waterproof layers and confirm local transport for viewpoints outside the city.",
+    images: [
+      ["https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80", "Green hills in soft light"],
+      ["https://images.unsplash.com/photo-1448375240586-882707db888b?auto=format&fit=crop&w=1200&q=80", "Dense forest in the northeast"],
+    ],
+  },
+  "destination-andaman": {
+    description: "The Andaman Islands bring clear water, coral reefs, and forested shores together in a laid-back island trip built around the sea.",
+    bestTime: "October to May",
+    tips: "Check ferry schedules in advance, follow local reef-protection guidance, and carry sun protection and water for beach days.",
+    images: [
+      ["https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80", "Palm-lined tropical beach"],
+      ["https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80", "Quiet island coast at sunset"],
+      ["https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=1200&q=80", "Tropical beach framed by palm trees"],
+      ["https://images.unsplash.com/photo-1509233725247-49e7c6a9c5d6?auto=format&fit=crop&w=1200&q=80", "Turquoise water along an island shore"],
+    ],
+  },
+  "destination-udaipur": {
+    description: "Udaipur's lakeside palaces, whitewashed lanes, and sunset boat rides create a graceful city escape in the Aravalli hills.",
+    bestTime: "September to March",
+    tips: "Book lake-facing stays and boat rides ahead in busy months, and explore the old city on foot in the cooler parts of the day.",
+    images: [
+      ["https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?auto=format&fit=crop&w=1200&q=80", "Palace reflected in a calm lake"],
+      ["https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1200&q=80", "Rajasthani palace courtyard"],
+    ],
+  },
+  "destination-rishikesh": {
+    description: "Rishikesh follows the Ganges through forested foothills, with riverside ashrams, suspension bridges, and outdoor adventures close at hand.",
+    bestTime: "September to November and March to April",
+    tips: "Use licensed operators for river activities, observe local customs around the ghats, and bring walking shoes for steep riverside paths.",
+    images: [
+      ["https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80", "Mountain river valley"],
+      ["https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80", "Quiet lake surrounded by forest"],
+    ],
+  },
+  "destination-coorg": {
+    description: "Coorg's coffee country is a patchwork of plantation paths, forested hills, and waterfalls, with a calm, green feel throughout the year.",
+    bestTime: "October to March",
+    tips: "Bring shoes with good grip for wet trails, book plantation stays early, and check waterfall access during heavy rain.",
+    images: [
+      ["https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80", "Sunlit forest canopy"],
+      ["https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1200&q=80", "Green countryside in the Western Ghats"],
+    ],
+  },
+  "destination-darjeeling": {
+    description: "Darjeeling's tea gardens and Himalayan outlook pair beautifully with a ride on the heritage railway and quiet walks through the hills.",
+    bestTime: "March to May and October to December",
+    tips: "Start early for mountain views, keep a warm layer handy, and reserve toy-train seats ahead during holidays.",
+    images: [
+      ["https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80", "Himalayan peaks above the clouds"],
+      ["https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80", "Highland landscape at golden hour"],
+    ],
+  },
+};
 
 window.addEventListener("load", function () {
   document.querySelector("#load-time").textContent = new Date().toLocaleString(
@@ -347,15 +464,36 @@ function resetBooking() {
 function showDescription(card) {
   const mainImage = card.querySelector(".destination-image");
   const extraImages = card.querySelectorAll(".gallery-sources img");
-  galleryImages = [mainImage].concat(Array.from(extraImages));
+  const details = destinationDetails[card.id];
+  const imageCandidates = [mainImage]
+    .concat(Array.from(extraImages))
+    .concat(
+      (details?.images || []).map(function (image) {
+        return { src: image[0], alt: image[1] };
+      }),
+    );
+  const seenImageUrls = new Set();
+  galleryImages = imageCandidates.filter(function (image) {
+    const imagePath = new URL(image.src).pathname;
+    if (seenImageUrls.has(imagePath)) return false;
+    seenImageUrls.add(imagePath);
+    return true;
+  }).slice(0, 5);
   galleryIndex = 0;
+  descriptionCard = card;
 
   document.querySelector("#description-title").textContent =
     card.querySelector("h3").textContent;
   document.querySelector("#description-location").textContent =
     card.querySelector(".country-full").textContent;
   document.querySelector("#description-attractions").textContent =
-    card.querySelector(".attractions").textContent;
+    card.querySelector(".attractions").textContent.replace("Worth the detour", "").trim();
+  document.querySelector("#description-detail").textContent =
+    details?.description || "Explore the landscapes, local culture, and nearby highlights that make this destination memorable.";
+  document.querySelector("#description-best-time").textContent =
+    details?.bestTime || card.querySelector(".season-tag").textContent;
+  document.querySelector("#description-tips").textContent =
+    details?.tips || "Check local weather and transport updates before you travel, and allow time to explore at a relaxed pace.";
   updateGalleryImage();
   descriptionDialog.showModal();
 }
@@ -379,25 +517,7 @@ destinationCards.forEach(function (card) {
 
     if (actionButton.dataset.action === "package") showPackageDetails(card);
     if (actionButton.dataset.action === "description") showDescription(card);
-    if (actionButton.dataset.action === "ready") {
-      if (bookingCard !== card) {
-        bookingCard = card;
-        bookingPackageSelection = null;
-        bookingSummary.hidden = true;
-        bookingTravelers.value = "1";
-        document
-          .querySelectorAll(
-            "#booking-form input[readonly]:not(#booking-destination)",
-          )
-          .forEach(function (input) {
-            input.value = "";
-          });
-      }
-      bookingDestination.value = card.querySelector("h3").textContent;
-      bookingDestination.defaultValue = bookingDestination.value;
-      bookingSection.hidden = false;
-      bookingSection.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
+    if (actionButton.dataset.action === "ready") startBooking(card);
   });
 
   card
@@ -406,6 +526,29 @@ destinationCards.forEach(function (card) {
       event.stopPropagation();
       event.currentTarget.classList.toggle("is-zoomed");
     });
+});
+
+function startBooking(card) {
+  if (bookingCard !== card) {
+    bookingCard = card;
+    bookingPackageSelection = null;
+    bookingSummary.hidden = true;
+    bookingTravelers.value = "1";
+    document
+      .querySelectorAll("#booking-form input[readonly]:not(#booking-destination)")
+      .forEach(function (input) {
+        input.value = "";
+      });
+  }
+  bookingDestination.value = card.querySelector("h3").textContent;
+  bookingDestination.defaultValue = bookingDestination.value;
+  bookingSection.hidden = false;
+  bookingSection.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+document.querySelector("#description-ready").addEventListener("click", function () {
+  descriptionDialog.close();
+  startBooking(descriptionCard);
 });
 
 [packageTypeSelect, packageQuantity, packageDays].forEach(function (control) {
