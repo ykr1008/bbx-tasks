@@ -136,3 +136,51 @@ employees.reverse();
 
 addHeading("13. Employees in Reverse Order");
 addEmployeeList(employees);
+
+
+
+ // 15. Create a string with spaces before and after the employee name
+const employeeName = "Arun Kumar";
+const paddedName = "   " + employeeName + "   ";
+
+addHeading("14. Employee Name with Extra Spaces");
+addResult("Original String", JSON.stringify(paddedName));
+
+// 16. Perform string operations
+addHeading("15. String Operations");
+
+addResult("Character Count", employeeName.length);
+addResult("Uppercase", employeeName.toUpperCase());
+addResult("Lowercase", employeeName.toLowerCase());
+addResult("Trim Both Ends", paddedName.trim());
+addResult("Trim Start", paddedName.trimStart());
+addResult("Trim End", paddedName.trimEnd());
+addResult("Character at Index 2", employeeName.charAt(2));
+addResult("Last Character", employeeName.at(-1));
+
+const chosenLetter = "a";
+
+addResult(
+  "First Occurrence of 'a' (case-insensitive)",
+  employeeName.toLowerCase().indexOf(chosenLetter)
+);
+
+addResult(
+  "Last Occurrence of 'a' (case-insensitive)",
+  employeeName.toLowerCase().lastIndexOf(chosenLetter)
+);
+
+addResult("Includes 'Kumar'", employeeName.includes("Kumar"));
+addResult("Includes Letter 'a' (case-insensitive)", employeeName.toLowerCase().includes("a"));
+addResult("Starts with 'A'", employeeName.startsWith("A"));
+addResult("Ends with 'r'", employeeName.endsWith("r"));
+addResult("slice(0, 4)", employeeName.slice(0, 4));
+addResult("substring(0, 4)", employeeName.substring(0, 4));
+addResult("Replace First Name", employeeName.replace("Arun", "Kiran"));
+addResult(
+  "Replace All 'a' with 'o' (case-insensitive)",
+  employeeName.toLowerCase().replaceAll("a", "o")
+);
+addResult("Concatenate Company Name", employeeName.concat(" - ABC Technologies"));
+addResult("Split into Words", JSON.stringify(employeeName.split(" ")));
+addResult("Repeat 3 Times", (employeeName + " ").repeat(3).trim());
