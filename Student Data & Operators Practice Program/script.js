@@ -185,3 +185,42 @@ logicalResults.forEach(function (result) {
 
     logicalOutput.appendChild(item);
 });
+
+
+// 7. Increment and Decrement Operators
+
+attemptCount++;
+const incrementedAttemptCount = attemptCount;
+console.log("Attempt Count after increment (++):", incrementedAttemptCount);
+
+attemptCount--;
+const decrementedAttemptCount = attemptCount;
+console.log("Attempt Count after decrement (--):", decrementedAttemptCount);
+
+
+// 8. Ternary Operators
+
+const passStatus = averageMarks >= 50 ? "Pass" : "Fail";
+console.log("Result:", passStatus);
+
+const ageStatus = age >= 18 ? "Adult" : "Minor";
+console.log("Age Status:", ageStatus);
+
+
+// Display results on the webpage
+const otherOutput = document.getElementById("other-output");
+
+const otherResults = [
+    ["Attempt Count after Increment (++)", incrementedAttemptCount],
+    ["Attempt Count after Decrement (--)", decrementedAttemptCount],
+    ["Result", passStatus],
+    ["Age Status", ageStatus]
+];
+
+otherResults.forEach(function (result) {
+    const item = document.createElement("p");
+    item.className = "output-item";
+    item.innerHTML = `<strong>${result[0]}:</strong> ${result[1]}`;
+
+    otherOutput.appendChild(item);
+});
