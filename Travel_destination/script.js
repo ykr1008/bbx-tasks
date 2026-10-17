@@ -517,7 +517,8 @@ destinationCards.forEach(function (card) {
 
     if (actionButton.dataset.action === "package") showPackageDetails(card);
     if (actionButton.dataset.action === "description") showDescription(card);
-    if (actionButton.dataset.action === "ready") startBooking(card);
+    if (actionButton.dataset.action === "ready")
+      startBooking(card, event, actionButton);
   });
 
   card
@@ -528,7 +529,13 @@ destinationCards.forEach(function (card) {
     });
 });
 
-function startBooking(card) {
+function startBooking(card, event, actionButton) {
+  console.log("READY TO GO event:", {
+    type: event.type,
+    target: event.target,
+    targetId: event.target.id || actionButton.id || card.id,
+  });
+
   if (bookingCard !== card) {
     bookingCard = card;
     bookingPackageSelection = null;
@@ -546,9 +553,9 @@ function startBooking(card) {
   bookingSection.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-document.querySelector("#description-ready").addEventListener("click", function () {
+document.querySelector("#description-ready").addEventListener("click", function (event) {
   descriptionDialog.close();
-  startBooking(descriptionCard);
+  startBooking(descriptionCard, event, event.currentTarget);
 });
 
 [packageTypeSelect, packageQuantity, packageDays].forEach(function (control) {
