@@ -165,6 +165,19 @@
 					<label>Package cost<input id="booking-package-cost" type="text" placeholder="Not selected" readonly></label>
 					<label>Total cost<input id="booking-total-cost" type="text" placeholder="Not selected" readonly></label>
 					<button class="button button-dark booking-choose-button" id="choose-package" type="button">Choose package <span aria-hidden="true">↗</span></button>
+					<section class="booking-summary" id="booking-summary" hidden aria-labelledby="booking-summary-title" aria-live="polite">
+						<h3 id="booking-summary-title">Booking summary</h3>
+						<dl>
+							<div><dt>Destination</dt><dd id="summary-destination"></dd></div>
+							<div><dt>Travelers</dt><dd id="summary-travelers"></dd></div>
+							<div><dt>Package</dt><dd id="summary-package-type"></dd></div>
+							<div><dt>Trip length</dt><dd id="summary-days"></dd></div>
+							<div><dt>Accommodation</dt><dd id="summary-accommodation"></dd></div>
+							<div><dt>Food</dt><dd id="summary-food"></dd></div>
+							<div><dt>Package cost</dt><dd id="summary-package-cost"></dd></div>
+							<div><dt>Total cost</dt><dd id="summary-total-cost"></dd></div>
+						</dl>
+					</section>
 				</form>
 			</div>
 		</section>

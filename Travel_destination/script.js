@@ -17,10 +17,12 @@ const bookingPackageDialog = document.querySelector('#booking-package-dialog');
 const bookingPackageOption = document.querySelector('#booking-package-option');
 const bookingPackageQuantity = document.querySelector('#booking-package-quantity');
 const bookingPackageDays = document.querySelector('#booking-package-days');
+const bookingSummary = document.querySelector('#booking-summary');
 let galleryImages = [];
 let galleryIndex = 0;
 let activePackageCard = null;
 let bookingCard = null;
+let bookingPackageSelection = null;
 
 window.addEventListener('load', function () {
 	document.querySelector('#load-time').textContent = new Date().toLocaleString(undefined, {
@@ -98,10 +100,12 @@ function showBookingPackageDialog() {
 
 	const minimumDays = Number(bookingCard.dataset.minDays);
 	document.querySelector('#booking-package-destination').textContent = bookingCard.querySelector('h3').textContent;
-	bookingPackageOption.value = 'person';
-	bookingPackageQuantity.value = '1';
+	bookingPackageOption.value = bookingPackageSelection ? bookingPackageSelection.type : 'person';
+	bookingPackageQuantity.value = bookingPackageSelection
+		? (bookingPackageSelection.type === 'couple' ? Math.ceil(Number(bookingTravelers.value) / 2) : Number(bookingTravelers.value))
+		: '1';
 	bookingPackageDays.min = minimumDays;
-	bookingPackageDays.value = minimumDays;
+	bookingPackageDays.value = bookingPackageSelection ? bookingPackageSelection.days : minimumDays;
 	updateBookingPackageEstimate();
 	bookingPackageDialog.showModal();
 }
@@ -119,14 +123,40 @@ function updateBookingPackageEstimate() {
 function applyBookingPackage() {
 	const estimate = calculatePackageEstimate(bookingCard, bookingPackageOption.value, bookingPackageQuantity.value, bookingPackageDays.value);
 	const isCouplePackage = bookingPackageOption.value === 'couple';
+	bookingPackageSelection = {
+		type: bookingPackageOption.value,
+		days: estimate.days
+	};
 	document.querySelector('#booking-package-type').value = isCouplePackage ? 'Couple Package' : 'Person Package';
 	document.querySelector('#booking-days').value = estimate.days + (estimate.days === 1 ? ' day' : ' days');
 	document.querySelector('#booking-accommodation').value = 'Yes';
 	document.querySelector('#booking-food').value = 'Yes';
 	document.querySelector('#booking-package-cost').value = '₹' + estimate.unitCost.toLocaleString('en-IN');
-	document.querySelector('#booking-total-cost').value = '₹' + estimate.total.toLocaleString('en-IN');
 	bookingTravelers.value = isCouplePackage ? estimate.quantity * 2 : estimate.quantity;
 	bookingPackageDialog.close();
+	updateBookingSummary();
+}
+
+function updateBookingSummary() {
+	if (!bookingPackageSelection || !bookingCard) return;
+
+	const travelers = Math.max(0, Number(bookingTravelers.value) || 0);
+	const isCouplePackage = bookingPackageSelection.type === 'couple';
+	const packageQuantity = isCouplePackage ? Math.ceil(travelers / 2) : travelers;
+	const estimate = calculatePackageEstimate(bookingCard, bookingPackageSelection.type, packageQuantity, bookingPackageSelection.days);
+	const packageType = isCouplePackage ? 'Couple Package' : 'Person Package';
+	const totalCost = '₹' + estimate.total.toLocaleString('en-IN');
+
+	document.querySelector('#booking-total-cost').value = totalCost;
+	document.querySelector('#summary-destination').textContent = bookingDestination.value;
+	document.querySelector('#summary-travelers').textContent = travelers + (travelers === 1 ? ' traveler' : ' travelers');
+	document.querySelector('#summary-package-type').textContent = packageType;
+	document.querySelector('#summary-days').textContent = estimate.days + (estimate.days === 1 ? ' day' : ' days');
+	document.querySelector('#summary-accommodation').textContent = 'Yes';
+	document.querySelector('#summary-food').textContent = 'Yes';
+	document.querySelector('#summary-package-cost').textContent = document.querySelector('#booking-package-cost').value;
+	document.querySelector('#summary-total-cost').textContent = totalCost;
+	bookingSummary.hidden = false;
 }
 
 function showDescription(card) {
@@ -164,6 +194,8 @@ destinationCards.forEach(function (card) {
 		if (actionButton.dataset.action === 'ready') {
 			if (bookingCard !== card) {
 				bookingCard = card;
+				bookingPackageSelection = null;
+				bookingSummary.hidden = true;
 				bookingTravelers.value = '1';
 				document.querySelectorAll('#booking-form input[readonly]:not(#booking-destination)').forEach(function (input) {
 					input.value = '';
@@ -192,6 +224,8 @@ document.querySelector('#choose-package').addEventListener('click', showBookingP
 	control.addEventListener('change', updateBookingPackageEstimate);
 });
 document.querySelector('#apply-package').addEventListener('click', applyBookingPackage);
+bookingTravelers.addEventListener('input', updateBookingSummary);
+bookingTravelers.addEventListener('change', updateBookingSummary);
 
 document.querySelectorAll('.rated-info .text-link, .rated-photo').forEach(function (link) {
 	link.addEventListener('click', function () {
