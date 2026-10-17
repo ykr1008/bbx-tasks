@@ -89,3 +89,50 @@ const employeeExists = employees.includes(checkName);
 addHeading("7. Check Employee Existence");
 addResult("Employee Name", checkName);
 addResult("Exists in Directory", employeeExists);
+
+
+ // 9. Create a department array and combine it with employees
+const departments = [
+  "Human Resources",
+  "Finance",
+  "Engineering"
+];
+
+const combinedDirectory = employees.concat(departments);
+
+addHeading("8. Combine Employees and Departments");
+addResult("Combined Total", combinedDirectory.length);
+addEmployeeList(combinedDirectory);
+
+// 10. Join employee names into one string
+const employeeString = employees.join(" | ");
+
+addHeading("9. Employee Names as a String");
+addResult("Joined Names", employeeString);
+
+// 11. Display employees from the 2nd to 4th positions
+// slice() does not change the original array
+const selectedEmployees = employees.slice(1, 4);
+
+addHeading("10. Employees from 2nd to 4th Positions");
+addEmployeeList(selectedEmployees);
+
+// 12. Replace the employee at the 3rd position using splice()
+const removedEmployee = employees.splice(2, 1, "Kiran Shah");
+
+addHeading("11. Replace the 3rd Employee");
+addResult("Replaced Employee", removedEmployee[0]);
+addResult("Replacement", "Kiran Shah");
+addEmployeeList(employees);
+
+// 13. Sort employees alphabetically
+employees.sort();
+
+addHeading("12. Employees Sorted Alphabetically");
+addEmployeeList(employees);
+
+// 14. Reverse the employee order
+employees.reverse();
+
+addHeading("13. Employees in Reverse Order");
+addEmployeeList(employees);
