@@ -145,6 +145,22 @@
 				<p class="empty-state" id="empty-state" hidden>No places match that search. Try another name or season.</p>
 			</div>
 		</section>
+		<section class="booking-section" id="booking" hidden aria-labelledby="booking-title">
+			<div class="section-wrap booking-inner">
+				<div class="booking-heading">
+					<p class="eyebrow">Your next story starts here</p>
+					<h2 id="booking-title">A trip worth looking forward to.</h2>
+					<p class="section-note">Tell us how to reach you and we’ll start with the details that matter.</p>
+				</div>
+				<form class="booking-form" id="booking-form" novalidate>
+					<label>Full name<input id="booking-name" type="text" placeholder="Name on your travel documents" autocomplete="name"></label>
+					<label>Email address<input id="booking-email" type="email" placeholder="you@example.com" autocomplete="email"></label>
+					<label>Mobile number<input id="booking-mobile" type="tel" placeholder="10-digit mobile number" autocomplete="tel" inputmode="numeric"></label>
+					<label>Destination<input id="booking-destination" type="text" placeholder="Choose a destination" readonly></label>
+					<label>Number of travelers<input id="booking-travelers" type="number" min="1" value="1" placeholder="1"></label>
+				</form>
+			</div>
+		</section>
 	</main>
 
 	<footer class="site-footer" id="contact">

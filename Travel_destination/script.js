@@ -10,6 +10,8 @@ const packageDays = document.querySelector('#preview-days');
 const descriptionDialog = document.querySelector('#description-dialog');
 const descriptionImage = document.querySelector('#description-image');
 const galleryCount = document.querySelector('#gallery-count');
+const bookingSection = document.querySelector('#booking');
+const bookingDestination = document.querySelector('#booking-destination');
 let galleryImages = [];
 let galleryIndex = 0;
 let activePackageCard = null;
@@ -106,6 +108,11 @@ destinationCards.forEach(function (card) {
 
 		if (actionButton.dataset.action === 'package') showPackageDetails(card);
 		if (actionButton.dataset.action === 'description') showDescription(card);
+		if (actionButton.dataset.action === 'ready') {
+			bookingDestination.value = card.querySelector('h3').textContent;
+			bookingSection.hidden = false;
+			bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+		}
 	});
 
 	card.querySelector('.destination-image').addEventListener('dblclick', function (event) {

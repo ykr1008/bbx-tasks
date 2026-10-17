@@ -119,6 +119,18 @@ img { display: block; width: 100%; }
 .ready-button span { margin-left: 3px; color: var(--leaf); }
 .empty-state { margin: 25px 0 0; padding: 28px; border: 1px dashed #aab7a8; color: var(--muted); text-align: center; }
 
+.booking-section { padding-block: 78px 88px; background: var(--white); }
+.booking-section[hidden] { display: none; }
+.booking-inner { display: grid; grid-template-columns: minmax(220px, .8fr) minmax(0, 1.5fr); gap: 64px; align-items: start; }
+.booking-heading h2 { max-width: 370px; margin: 0 0 12px; font-family: var(--serif); font-size: 42px; font-weight: 500; line-height: 1.08; }
+.booking-heading .section-note { max-width: 320px; }
+.booking-form { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px 16px; }
+.booking-form label { display: grid; gap: 7px; color: #536057; font-size: 10px; font-weight: 700; }
+.booking-form input { width: 100%; height: 46px; padding: 0 12px; border: 1px solid var(--line); border-radius: 0; outline: 0; background: #fff; color: var(--ink); font-size: 12px; font-weight: 500; }
+.booking-form input:focus { border-color: var(--forest); box-shadow: 0 0 0 2px rgba(37, 77, 58, .12); }
+.booking-form input[readonly] { background: #f2f4ee; color: var(--forest); }
+.booking-form input::placeholder { color: #96a097; }
+
 .site-footer { background: #203c30; color: #f6f5eb; }
 .footer-main { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1.2fr; gap: 40px; padding-block: 56px 45px; }
 .footer-wordmark { color: white; }
@@ -217,6 +229,10 @@ img { display: block; width: 100%; }
 	.card-actions { gap: 9px; }
 	.quiet-button, .ready-button { padding-inline: 8px; font-size: 9px; }
 	.footer-main { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px 22px; padding-block: 42px 35px; }
+	.booking-section { padding-block: 58px 66px; }
+	.booking-inner { grid-template-columns: 1fr; gap: 25px; }
+	.booking-heading h2 { font-size: 36px; }
+	.booking-form { gap: 14px 10px; }
 	.footer-brand { grid-column: 1 / -1; }
 	.footer-bottom { gap: 12px; font-size: 9px; }
 	.description-layout { grid-template-columns: 1fr; }
