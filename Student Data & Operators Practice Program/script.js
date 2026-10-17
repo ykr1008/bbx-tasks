@@ -121,3 +121,67 @@ assignmentResults.forEach(function (result) {
 
     console.log(result[0] + " (displayed):", result[1]);
 });
+
+
+// 5. Comparison Operators
+
+const comparisonResults = [
+    ["Age >= 18", age >= 18],
+    ["Total Marks > 250", totalMarks > 250],
+    ["Attendance Percentage < 75", attendancePercentage < 75],
+    ['Course == "JavaScript"', course == "JavaScript"],
+    ['Course === "JavaScript"', course === "JavaScript"],
+    ['Student Name != "Admin"', studentName != "Admin"],
+    ['Student Name !== "Admin"', studentName !== "Admin"],
+    ["Age < 25", age < 25],
+    ["Attendance Percentage <= 100", attendancePercentage <= 100]
+];
+
+const comparisonOutput = document.getElementById("comparison-output");
+
+comparisonResults.forEach(function (result) {
+    const item = document.createElement("p");
+    item.className = "output-item";
+    item.innerHTML = `<strong>${result[0]}:</strong> ${result[1]}`;
+
+    comparisonOutput.appendChild(item);
+
+    console.log(result[0] + ":", result[1]);
+});
+
+
+// 6. Logical Operators
+
+// Exam eligibility: attendance must be 75 or above AND fee must be paid
+const examEligible =
+    attendancePercentage >= 75 && isFeePaid;
+
+console.log("Eligible for Exam:", examEligible);
+
+// Certificate eligibility: marks must be 250 or above OR attendance must be 90 or above
+const certificateEligible =
+    totalMarks >= 250 || attendancePercentage >= 90;
+
+console.log("Eligible for Certificate:", certificateEligible);
+
+// NOT operator: opposite of fee-paid value
+const oppositeFeeStatus = !isFeePaid;
+
+console.log("Opposite of Is Fee Paid:", oppositeFeeStatus);
+
+// Display results on the webpage
+const logicalOutput = document.getElementById("logical-output");
+
+const logicalResults = [
+    ["Eligible for Exam", examEligible],
+    ["Eligible for Certificate", certificateEligible],
+    ["Opposite of Is Fee Paid (!isFeePaid)", oppositeFeeStatus]
+];
+
+logicalResults.forEach(function (result) {
+    const item = document.createElement("p");
+    item.className = "output-item";
+    item.innerHTML = `<strong>${result[0]}:</strong> ${result[1]}`;
+
+    logicalOutput.appendChild(item);
+});
