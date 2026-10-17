@@ -1,7 +1,7 @@
 
 const output = document.getElementById("output");
 
-// 1. Customer details
+// 1. Customer details object
 const customer = {
   customerName: "Arun Kumar",
   mobileNumber: "9876543210",
@@ -10,7 +10,7 @@ const customer = {
   membershipType: "Gold"
 };
 
-// 2. Food items
+// 2. Array containing six food items
 const foodItems = [
   "Burger",
   "Pizza",
@@ -56,6 +56,7 @@ function addList(items) {
 // Function 1: display customer details
 function displayCustomerDetails() {
   addHeading("Customer Details");
+
   addResult("Customer Name", customer.customerName);
   addResult("Mobile Number", customer.mobileNumber);
   addResult("Delivery Address", customer.deliveryAddress);
@@ -63,13 +64,13 @@ function displayCustomerDetails() {
   addResult("Membership Type", customer.membershipType);
 }
 
-// Function 2: display all food items
+// Function 2: display all ordered food items
 function displayFoodItems() {
   addHeading("Food Items");
   addList(foodItems);
 }
 
-// Function 3: return the total number of food items
+// Function 3: return total number of food items
 function getTotalFoodItems() {
   return foodItems.length;
 }
@@ -84,42 +85,109 @@ function removeLastFoodItem() {
   return foodItems.pop();
 }
 
-// Function 6: check whether a food item exists using includes()
+// Function 6: check whether a food item exists
 function checkFoodItem(item) {
   return foodItems.includes(item);
 }
 
-// Display customer details and initial order
+// Function 7: display food items alphabetically
+function displaySortedFoodItems() {
+  const sortedItems = [...foodItems];
+  sortedItems.sort();
+
+  addHeading("Sorted Food List");
+  addList(sortedItems);
+}
+
+// Function 8: display food items in reverse order
+function displayReversedFoodItems() {
+  const reversedItems = [...foodItems];
+  reversedItems.reverse();
+
+  addHeading("Reversed Food List");
+  addList(reversedItems);
+}
+
+// Function 9: display all food items as one string
+function displayJoinedFoodItems() {
+  const joinedItems = foodItems.join(" | ");
+
+  addHeading("Joined Food List");
+  addResult("Complete Order", joinedItems);
+}
+
+// Function 10: personalized welcome message
+function displayWelcomeMessage(name) {
+  return "Welcome, " + name + "! Thank you for ordering with us.";
+}
+
+// Function expression: display delivery status
+const displayDeliveryStatus = function() {
+  return "Your order is confirmed and being prepared.";
+};
+
+// Arrow function: estimated delivery time
+const getEstimatedDeliveryTime = () => {
+  return "30–45 minutes";
+};
+
+// Display customer details
+addHeading("Welcome");
+addResult(
+  "Message",
+  displayWelcomeMessage(customer.customerName)
+);
+
 displayCustomerDetails();
+
+// Display initial food items and count
 displayFoodItems();
 addResult("Total Number of Food Items", getTotalFoodItems());
 
-// Demonstrate adding an item
+// Add a new item
 addFoodItem("Pasta");
 
 addHeading("Updated Food List");
 addList(foodItems);
 addResult("Updated Total", getTotalFoodItems());
 
-// Demonstrate removing the last item
+// Remove the last item
 const removedItem = removeLastFoodItem();
 
 addHeading("Remove Last Food Item");
 addResult("Removed Item", removedItem);
 addList(foodItems);
 
-// Demonstrate searching for an item
+// Search for a food item
 const searchItem = "Pizza";
 
 addHeading("Search Result");
 addResult("Food Item", searchItem);
 addResult("Exists in Order", checkFoodItem(searchItem));
 
-// Browser console output
+// Display sorted, reversed, and joined lists
+displaySortedFoodItems();
+displayReversedFoodItems();
+displayJoinedFoodItems();
+
+// Delivery status
+addHeading("Delivery Status");
+addResult("Status", displayDeliveryStatus());
+
+// Estimated delivery time
+addHeading("Estimated Delivery Time");
+addResult("Delivery Estimate", getEstimatedDeliveryTime());
+
+// Display all required results in the browser console
+console.log("Welcome Message:", displayWelcomeMessage(customer.customerName));
 console.log("Customer Details:", customer);
-console.log("Food Items:", ["Burger", "Pizza", "French Fries",
-  "Chicken Biryani", "Masala Dosa", "Ice Cream"]);
-console.log("Total Number of Food Items:", 6);
+console.log("Food Items:", foodItems);
+console.log("Total Number of Food Items:", getTotalFoodItems());
 console.log("Updated Food List:", foodItems);
 console.log("Removed Food Item:", removedItem);
 console.log("Search Result:", checkFoodItem(searchItem));
+console.log("Sorted Food List:", [...foodItems].sort());
+console.log("Reversed Food List:", [...foodItems].reverse());
+console.log("Joined Food List:", foodItems.join(" | "));
+console.log("Delivery Status:", displayDeliveryStatus());
+console.log("Estimated Delivery Time:", getEstimatedDeliveryTime());
