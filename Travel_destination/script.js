@@ -313,13 +313,23 @@ function updateBookingSummary() {
   const estimate = calculatePackageEstimate(
     bookingCard,
     bookingPackageSelection.type,
-    packageQuantity,
+    Math.max(1, packageQuantity),
     bookingPackageSelection.days,
   );
   const packageType = isCouplePackage ? "Couple Package" : "Person Package";
-  const totalCost = "₹" + estimate.total.toLocaleString("en-IN");
+  const total = travelers > 0 ? estimate.total : 0;
+  const totalCost = "₹" + total.toLocaleString("en-IN");
+  const packageCost =
+    travelers > 0
+      ? "₹" +
+        estimate.unitCost.toLocaleString("en-IN") +
+        " × " +
+        packageQuantity +
+        (packageQuantity === 1 ? " package" : " packages")
+      : "Enter traveler count";
 
   document.querySelector("#booking-total-cost").value = totalCost;
+  document.querySelector("#booking-package-cost").value = packageCost;
   document.querySelector("#summary-destination").textContent =
     bookingDestination.value;
   document.querySelector("#summary-travelers").textContent =
@@ -329,8 +339,7 @@ function updateBookingSummary() {
     estimate.days + (estimate.days === 1 ? " day" : " days");
   document.querySelector("#summary-accommodation").textContent = "Yes";
   document.querySelector("#summary-food").textContent = "Yes";
-  document.querySelector("#summary-package-cost").textContent =
-    document.querySelector("#booking-package-cost").value;
+  document.querySelector("#summary-package-cost").textContent = packageCost;
   document.querySelector("#summary-total-cost").textContent = totalCost;
   bookingSummary.hidden = false;
 }
