@@ -130,6 +130,8 @@ img { display: block; width: 100%; }
 .booking-form input:focus { border-color: var(--forest); box-shadow: 0 0 0 2px rgba(37, 77, 58, .12); }
 .booking-form input[readonly] { background: #f2f4ee; color: var(--forest); }
 .booking-form input::placeholder { color: #96a097; }
+.booking-choose-button { justify-self: start; }
+.booking-package-actions { display: flex; align-items: center; gap: 12px; margin-top: 20px; }
 
 .site-footer { background: #203c30; color: #f6f5eb; }
 .footer-main { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1.2fr; gap: 40px; padding-block: 56px 45px; }
@@ -233,6 +235,7 @@ img { display: block; width: 100%; }
 	.booking-inner { grid-template-columns: 1fr; gap: 25px; }
 	.booking-heading h2 { font-size: 36px; }
 	.booking-form { gap: 14px 10px; }
+	.booking-choose-button { grid-column: 1 / -1; }
 	.footer-brand { grid-column: 1 / -1; }
 	.footer-bottom { gap: 12px; font-size: 9px; }
 	.description-layout { grid-template-columns: 1fr; }

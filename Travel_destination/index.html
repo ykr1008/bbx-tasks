@@ -158,6 +158,13 @@
 					<label>Mobile number<input id="booking-mobile" type="tel" placeholder="10-digit mobile number" autocomplete="tel" inputmode="numeric"></label>
 					<label>Destination<input id="booking-destination" type="text" placeholder="Choose a destination" readonly></label>
 					<label>Number of travelers<input id="booking-travelers" type="number" min="1" value="1" placeholder="1"></label>
+					<label>Package type<input id="booking-package-type" type="text" placeholder="Choose a package" readonly></label>
+					<label>Number of days<input id="booking-days" type="text" placeholder="Not selected" readonly></label>
+					<label>Accommodation<input id="booking-accommodation" type="text" placeholder="Not selected" readonly></label>
+					<label>Food<input id="booking-food" type="text" placeholder="Not selected" readonly></label>
+					<label>Package cost<input id="booking-package-cost" type="text" placeholder="Not selected" readonly></label>
+					<label>Total cost<input id="booking-total-cost" type="text" placeholder="Not selected" readonly></label>
+					<button class="button button-dark booking-choose-button" id="choose-package" type="button">Choose package <span aria-hidden="true">↗</span></button>
 				</form>
 			</div>
 		</section>
@@ -195,6 +202,24 @@
 	<dialog class="site-dialog description-dialog" id="description-dialog" aria-labelledby="description-title">
 		<form method="dialog"><button class="dialog-close" aria-label="Close destination description">×</button></form>
 		<div class="description-layout"><div class="description-photo"><img id="description-image" src="" alt=""><button class="gallery-control gallery-prev" type="button" aria-label="Previous image">←</button><button class="gallery-control gallery-next" type="button" aria-label="Next image">→</button><span class="gallery-count" id="gallery-count"></span></div><div class="description-copy"><p class="eyebrow">A closer look</p><h2 id="description-title"></h2><p id="description-location"></p><p id="description-attractions"></p><button class="button button-dark" type="button" data-close-dialog>Close</button></div></div>
+	</dialog>
+
+	<dialog class="site-dialog" id="booking-package-dialog" aria-labelledby="booking-package-title">
+		<form method="dialog"><button class="dialog-close" aria-label="Close package chooser">×</button></form>
+		<p class="eyebrow">Make it your kind of trip</p><h2 id="booking-package-title">Choose a package</h2>
+		<p class="package-destination-line">Destination <strong id="booking-package-destination"></strong></p>
+		<div class="package-fields">
+			<label>Package type<select id="booking-package-option"><option value="person">Person package</option><option value="couple">Couple package</option></select></label>
+			<label>Quantity<input id="booking-package-quantity" type="number" min="1" value="1"></label>
+			<label>Number of days<input id="booking-package-days" type="number" min="1" value="1"></label>
+		</div>
+		<div class="package-preview-content">
+			<p><span>Accommodation included</span><span>Yes</span></p>
+			<p><span>Food included</span><span>Yes</span></p>
+			<p><span>Cost per unit</span><span id="booking-package-unit-cost"></span></p>
+			<p class="estimated-row"><span>Estimated total cost</span><span id="booking-package-estimate"></span></p>
+		</div>
+		<div class="booking-package-actions"><button class="button button-dark" id="apply-package" type="button">Choose this package <span aria-hidden="true">↗</span></button><button class="quiet-button" type="button" data-close-dialog>Cancel</button></div>
 	</dialog>
 </body>
 </html>
