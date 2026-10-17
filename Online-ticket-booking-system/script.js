@@ -1,3 +1,4 @@
+
 function startBooking() {
   // 1. Welcome message
   alert("Welcome to the Online Movie Ticket Booking System!");
@@ -41,7 +42,7 @@ function startBooking() {
   const numberOfTickets = Number(ticketInput);
   const ticketPrice = Number("200");
 
-  // 5. Validate ticket count BEFORE asking for seat type
+  // 5. Validate ticket count before asking for seat type
   let bookingStatus = "";
 
   if (
@@ -62,7 +63,9 @@ function startBooking() {
   }
 
   // 6. Get seat type
-  const seatType = prompt("Choose your seat type:\nRegular\nPremium\nVIP");
+  const seatType = prompt(
+    "Choose your seat type:\nRegular\nPremium\nVIP"
+  );
 
   if (seatType === null) {
     alert("Booking Cancelled.");
@@ -74,47 +77,7 @@ function startBooking() {
     return;
   }
 
-  // 7. Confirm booking
-  const bookingConfirmed = confirm("Do you want to proceed with your booking?");
-
-  if (!bookingConfirmed) {
-    alert("Booking Cancelled.");
-    console.log("Booking Status: Booking Cancelled.");
-    return;
-  }
-
-  console.log("Booking Confirmed:", bookingConfirmed);
-  console.log("Booking Status:", bookingStatus);
-
-  // 8. Calculate the bill
-  const totalTicketCost = numberOfTickets * ticketPrice;
-
-  let discountAmount = 0;
-
-  if (numberOfTickets > 3) {
-    discountAmount = totalTicketCost * 0.1;
-  }
-
-  const convenienceFee = 50;
-
-  const finalAmount = totalTicketCost - discountAmount + convenienceFee;
-
-  const averageCostPerTicket = finalAmount / numberOfTickets;
-
-  const remainder = finalAmount % numberOfTickets;
-
-  // 9. Determine booking category
-  let bookingCategory = "";
-
-  if (finalAmount >= 2000) {
-    bookingCategory = "Premium Booking";
-  } else if (finalAmount >= 1000) {
-    bookingCategory = "Standard Booking";
-  } else {
-    bookingCategory = "Budget Booking";
-  }
-
-  // 10. Handle seat type using switch
+  // 7. Validate seat type using switch BEFORE confirmation
   let seatMessage = "";
 
   switch (seatType.trim().toLowerCase()) {
@@ -139,15 +102,69 @@ function startBooking() {
     return;
   }
 
-  // 11. Display calculation results
+  // 8. Confirm booking after validating all inputs
+  const bookingConfirmed = confirm(
+    "Do you want to proceed with your booking?"
+  );
+
+  if (!bookingConfirmed) {
+    alert("Booking Cancelled.");
+    console.log("Booking Status: Booking Cancelled.");
+    return;
+  }
+
+  console.log("Booking Confirmed:", bookingConfirmed);
+  console.log("Booking Status:", bookingStatus);
+
+  // 9. Calculate the bill
+  const totalTicketCost = numberOfTickets * ticketPrice;
+
+  let discountAmount = 0;
+
+  if (numberOfTickets > 3) {
+    discountAmount = totalTicketCost * 0.10;
+  }
+
+  const convenienceFee = 50;
+
+  const finalAmount =
+    totalTicketCost - discountAmount + convenienceFee;
+
+  const averageCostPerTicket =
+    finalAmount / numberOfTickets;
+
+  const remainder = finalAmount % numberOfTickets;
+
+  // 10. Determine booking category
+  let bookingCategory = "";
+
+  if (finalAmount >= 2000) {
+    bookingCategory = "Premium Booking";
+  } else if (finalAmount >= 1000) {
+    bookingCategory = "Standard Booking";
+  } else {
+    bookingCategory = "Budget Booking";
+  }
+
+  // 11. Display calculation results in the console
+  console.log("Customer Name:", customerName);
+  console.log("Movie Name:", movieName);
+  console.log("Number of Tickets:", numberOfTickets);
+  console.log("Ticket Price:", ticketPrice);
+  console.log("Seat Type:", seatType);
   console.log("Seat Message:", seatMessage);
   console.log("Total Ticket Cost:", totalTicketCost);
   console.log("Discount Amount:", discountAmount);
   console.log("Convenience Fee:", convenienceFee);
   console.log("Final Amount:", finalAmount);
-  console.log("Average Cost per Ticket:", averageCostPerTicket.toFixed(2));
+  console.log(
+    "Average Cost per Ticket:",
+    averageCostPerTicket.toFixed(2)
+  );
   console.log("Remainder:", remainder);
   console.log("Booking Category:", bookingCategory);
+  console.log("Booking Status:", bookingStatus);
+  console.log("Confirmation Status:", bookingConfirmed);
 
   // 12. Display ticket readiness using a for loop
   for (let i = 1; i <= numberOfTickets; i++) {
@@ -177,7 +194,7 @@ function startBooking() {
   // 15. Display cinema seats using nested loops
   for (let row = 65; row <= 67; row++) {
     for (let seat = 1; seat <= 5; seat++) {
-      // Skip seat A3
+      // Skip seat A3 using continue
       if (row === 65 && seat === 3) {
         continue;
       }
@@ -186,26 +203,56 @@ function startBooking() {
     }
   }
 
-  // 16. Display final booking details on the webpage
+  // 16. Display final booking details safely on the webpage
   const bookingOutput = document.getElementById("booking-output");
 
-  bookingOutput.innerHTML = `
-  <h3>Booking Summary</h3>
-  <p><strong>Customer Name:</strong> ${customerName}</p>
-  <p><strong>Movie:</strong> ${movieName}</p>
-  <p><strong>Seat Type:</strong> ${seatType}</p>
-  <p><strong>Number of Tickets:</strong> ${numberOfTickets}</p>
-  <p><strong>Ticket Price:</strong> ₹${ticketPrice}</p>
-  <p><strong>Total Ticket Cost:</strong> ₹${totalTicketCost}</p>
-  <p><strong>Discount:</strong> ₹${discountAmount}</p>
-  <p><strong>Convenience Fee:</strong> ₹${convenienceFee}</p>
-  <p><strong>Final Amount:</strong> ₹${finalAmount}</p>
-  <p><strong>Average Cost per Ticket:</strong> ₹${averageCostPerTicket.toFixed(2)}</p>
-  <p><strong>Remainder:</strong> ${remainder}</p>
-  <p><strong>Booking Category:</strong> ${bookingCategory}</p>
-  <p><strong>Booking Status:</strong> ${bookingStatus}</p>
-  <p><strong>Confirmation Status:</strong> ${bookingConfirmed ? "Confirmed" : "Not Confirmed"}</p>
-`;
+  // Clear previous content
+  bookingOutput.replaceChildren();
+
+  // Create the heading
+  const heading = document.createElement("h3");
+  heading.textContent = "Booking Summary";
+  bookingOutput.appendChild(heading);
+
+  // Store all booking details
+  const details = [
+    ["Customer Name", customerName],
+    ["Movie", movieName],
+    ["Seat Type", seatType],
+    ["Seat Message", seatMessage],
+    ["Number of Tickets", numberOfTickets],
+    ["Ticket Price", `₹${ticketPrice}`],
+    ["Total Ticket Cost", `₹${totalTicketCost}`],
+    ["Discount", `₹${discountAmount}`],
+    ["Convenience Fee", `₹${convenienceFee}`],
+    ["Final Amount", `₹${finalAmount}`],
+    [
+      "Average Cost per Ticket",
+      `₹${averageCostPerTicket.toFixed(2)}`
+    ],
+    ["Remainder", remainder],
+    ["Booking Category", bookingCategory],
+    ["Booking Status", bookingStatus],
+    [
+      "Confirmation Status",
+      bookingConfirmed ? "Confirmed" : "Not Confirmed"
+    ]
+  ];
+
+  // Create and display each detail
+  for (const [label, value] of details) {
+    const paragraph = document.createElement("p");
+    const strong = document.createElement("strong");
+
+    strong.textContent = `${label}:`;
+
+    paragraph.appendChild(strong);
+    paragraph.appendChild(
+      document.createTextNode(` ${value}`)
+    );
+
+    bookingOutput.appendChild(paragraph);
+  }
 }
 
 startBooking();
