@@ -140,6 +140,22 @@ img { display: block; width: 100%; }
 .booking-summary dt { margin-bottom: 4px; color: var(--muted); font-size: 9px; }
 .booking-summary dd { margin: 0; color: var(--ink); font-size: 12px; font-weight: 700; overflow-wrap: anywhere; }
 .booking-summary dl div:last-child dd { color: var(--forest); font-size: 15px; }
+.booking-form[hidden], .booking-heading[hidden], .confirmation-card[hidden] { display: none; }
+.booking-actions { grid-column: 1 / -1; display: flex; align-items: center; gap: 15px; padding-top: 2px; }
+.field-error { min-height: 0; color: #b33f31; font-size: 9px; font-weight: 500; }
+.field-error:empty { display: none; }
+.booking-form input[aria-invalid="true"] { border-color: #b33f31; background: #fff8f6; }
+.confirmation-card { grid-column: 1 / -1; padding: 24px; border: 1px solid var(--line); border-top: 3px solid var(--forest); background: #fbfcf8; }
+.confirmation-card h3 { margin: 0 0 20px; font-family: var(--serif); font-size: 32px; font-weight: 500; }
+.confirmation-card dl { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px 18px; margin: 0 0 20px; }
+.confirmation-card dl div { min-width: 0; }
+.confirmation-card dt { margin-bottom: 4px; color: var(--muted); font-size: 9px; }
+.confirmation-card dd { margin: 0; color: var(--ink); font-size: 12px; font-weight: 600; overflow-wrap: anywhere; }
+.confirmation-card dl div:nth-last-child(-n+2) dd { color: var(--forest); }
+.journey-dialog { text-align: center; }
+.journey-dialog .eyebrow { margin-top: 9px; }
+.journey-dialog h2 { max-width: 370px; margin-inline: auto; color: var(--forest); }
+.journey-dialog .dialog-note { max-width: 340px; margin: 0 auto 21px; }
 
 .site-footer { background: #203c30; color: #f6f5eb; }
 .footer-main { display: grid; grid-template-columns: 1.7fr 1fr 1fr 1.2fr; gap: 40px; padding-block: 56px 45px; }
@@ -246,6 +262,10 @@ img { display: block; width: 100%; }
 	.booking-choose-button { grid-column: 1 / -1; }
 	.booking-summary { padding: 16px 14px; }
 	.booking-summary dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 12px; }
+	.booking-actions { flex-wrap: wrap; }
+	.confirmation-card { padding: 18px 14px; }
+	.confirmation-card dl { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 13px 12px; }
+	.confirmation-card h3 { font-size: 27px; }
 	.footer-brand { grid-column: 1 / -1; }
 	.footer-bottom { gap: 12px; font-size: 9px; }
 	.description-layout { grid-template-columns: 1fr; }

@@ -153,12 +153,12 @@
 					<p class="section-note">Tell us how to reach you and we’ll start with the details that matter.</p>
 				</div>
 				<form class="booking-form" id="booking-form" novalidate>
-					<label>Full name<input id="booking-name" type="text" placeholder="Name on your travel documents" autocomplete="name"></label>
-					<label>Email address<input id="booking-email" type="email" placeholder="you@example.com" autocomplete="email"></label>
-					<label>Mobile number<input id="booking-mobile" type="tel" placeholder="10-digit mobile number" autocomplete="tel" inputmode="numeric"></label>
+					<label>Full name<input id="booking-name" type="text" placeholder="Name on your travel documents" autocomplete="name" aria-describedby="booking-name-error"><small class="field-error" id="booking-name-error"></small></label>
+					<label>Email address<input id="booking-email" type="email" placeholder="you@example.com" autocomplete="email" aria-describedby="booking-email-error"><small class="field-error" id="booking-email-error"></small></label>
+					<label>Mobile number<input id="booking-mobile" type="tel" placeholder="10-digit mobile number" autocomplete="tel" inputmode="numeric" aria-describedby="booking-mobile-error"><small class="field-error" id="booking-mobile-error"></small></label>
 					<label>Destination<input id="booking-destination" type="text" placeholder="Choose a destination" readonly></label>
-					<label>Number of travelers<input id="booking-travelers" type="number" min="1" value="1" placeholder="1"></label>
-					<label>Package type<input id="booking-package-type" type="text" placeholder="Choose a package" readonly></label>
+					<label>Number of travelers<input id="booking-travelers" type="number" min="1" value="1" placeholder="1" aria-describedby="booking-travelers-error"><small class="field-error" id="booking-travelers-error"></small></label>
+					<label>Package type<input id="booking-package-type" type="text" placeholder="Choose a package" readonly aria-describedby="booking-package-error"><small class="field-error" id="booking-package-error"></small></label>
 					<label>Number of days<input id="booking-days" type="text" placeholder="Not selected" readonly></label>
 					<label>Accommodation<input id="booking-accommodation" type="text" placeholder="Not selected" readonly></label>
 					<label>Food<input id="booking-food" type="text" placeholder="Not selected" readonly></label>
@@ -178,7 +178,31 @@
 							<div><dt>Total cost</dt><dd id="summary-total-cost"></dd></div>
 						</dl>
 					</section>
+					<div class="booking-actions">
+						<button class="button button-dark" type="submit">Confirm booking <span aria-hidden="true">↗</span></button>
+						<button class="quiet-button" id="reset-booking" type="button">Reset</button>
+					</div>
 				</form>
+				<section class="confirmation-card" id="confirmation-card" hidden aria-labelledby="confirmation-title">
+					<p class="eyebrow">A plan worth keeping</p>
+					<h3 id="confirmation-title">Your journey is confirmed.</h3>
+					<dl>
+						<div><dt>Customer</dt><dd id="confirmation-name"></dd></div>
+						<div><dt>Email</dt><dd id="confirmation-email"></dd></div>
+						<div><dt>Mobile</dt><dd id="confirmation-mobile"></dd></div>
+						<div><dt>Destination</dt><dd id="confirmation-destination"></dd></div>
+						<div><dt>Package</dt><dd id="confirmation-package-type"></dd></div>
+						<div><dt>Trip length</dt><dd id="confirmation-days"></dd></div>
+						<div><dt>Accommodation</dt><dd id="confirmation-accommodation"></dd></div>
+						<div><dt>Food</dt><dd id="confirmation-food"></dd></div>
+						<div><dt>Travelers</dt><dd id="confirmation-travelers"></dd></div>
+						<div><dt>Package cost</dt><dd id="confirmation-package-cost"></dd></div>
+						<div><dt>Total cost</dt><dd id="confirmation-total-cost"></dd></div>
+						<div><dt>Booked</dt><dd id="confirmation-date"></dd></div>
+						<div><dt>Status</dt><dd id="confirmation-status">Confirmed</dd></div>
+					</dl>
+					<button class="quiet-button" id="plan-another-trip" type="button">Plan another trip</button>
+				</section>
 			</div>
 		</section>
 	</main>
@@ -233,6 +257,14 @@
 			<p class="estimated-row"><span>Estimated total cost</span><span id="booking-package-estimate"></span></p>
 		</div>
 		<div class="booking-package-actions"><button class="button button-dark" id="apply-package" type="button">Choose this package <span aria-hidden="true">↗</span></button><button class="quiet-button" type="button" data-close-dialog>Cancel</button></div>
+	</dialog>
+
+	<dialog class="site-dialog journey-dialog" id="journey-dialog" aria-labelledby="journey-title">
+		<form method="dialog"><button class="dialog-close" aria-label="Close booking confirmation">×</button></form>
+		<p class="eyebrow">Your next story starts here</p>
+		<h2 id="journey-title">Have a Wonderful Journey!</h2>
+		<p class="dialog-note">Your booking is confirmed. We look forward to being part of your trip.</p>
+		<button class="button button-dark" type="button" data-close-dialog>Close</button>
 	</dialog>
 </body>
 </html>

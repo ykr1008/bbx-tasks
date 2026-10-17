@@ -18,6 +18,13 @@ const bookingPackageOption = document.querySelector('#booking-package-option');
 const bookingPackageQuantity = document.querySelector('#booking-package-quantity');
 const bookingPackageDays = document.querySelector('#booking-package-days');
 const bookingSummary = document.querySelector('#booking-summary');
+const bookingForm = document.querySelector('#booking-form');
+const bookingName = document.querySelector('#booking-name');
+const bookingEmail = document.querySelector('#booking-email');
+const bookingMobile = document.querySelector('#booking-mobile');
+const bookingHeading = document.querySelector('.booking-heading');
+const confirmationCard = document.querySelector('#confirmation-card');
+const journeyDialog = document.querySelector('#journey-dialog');
 let galleryImages = [];
 let galleryIndex = 0;
 let activePackageCard = null;
@@ -132,6 +139,7 @@ function applyBookingPackage() {
 	document.querySelector('#booking-accommodation').value = 'Yes';
 	document.querySelector('#booking-food').value = 'Yes';
 	document.querySelector('#booking-package-cost').value = '₹' + estimate.unitCost.toLocaleString('en-IN');
+	setBookingError('#booking-package-type', '#booking-package-error', '');
 	bookingTravelers.value = isCouplePackage ? estimate.quantity * 2 : estimate.quantity;
 	bookingPackageDialog.close();
 	updateBookingSummary();
@@ -157,6 +165,93 @@ function updateBookingSummary() {
 	document.querySelector('#summary-package-cost').textContent = document.querySelector('#booking-package-cost').value;
 	document.querySelector('#summary-total-cost').textContent = totalCost;
 	bookingSummary.hidden = false;
+}
+
+function setBookingError(inputId, errorId, message) {
+	const input = document.querySelector(inputId);
+	document.querySelector(errorId).textContent = message;
+	input.setAttribute('aria-invalid', message ? 'true' : 'false');
+	return message === '';
+}
+
+function clearBookingErrors() {
+	setBookingError('#booking-name', '#booking-name-error', '');
+	setBookingError('#booking-email', '#booking-email-error', '');
+	setBookingError('#booking-mobile', '#booking-mobile-error', '');
+	setBookingError('#booking-travelers', '#booking-travelers-error', '');
+	setBookingError('#booking-package-type', '#booking-package-error', '');
+}
+
+function validateBookingForm() {
+	bookingName.value = bookingName.value.trim();
+	bookingEmail.value = bookingEmail.value.trim();
+	bookingMobile.value = bookingMobile.value.trim();
+	let isValid = true;
+
+	if (!setBookingError('#booking-name', '#booking-name-error', bookingName.value ? '' : 'Enter your full name.')) isValid = false;
+	if (!setBookingError('#booking-email', '#booking-email-error', bookingEmail.value.includes('@') ? '' : 'Enter an email address containing @.')) isValid = false;
+	if (!setBookingError('#booking-mobile', '#booking-mobile-error', /^\d{10}$/.test(bookingMobile.value) ? '' : 'Enter exactly 10 digits.')) isValid = false;
+	if (!setBookingError('#booking-travelers', '#booking-travelers-error', Number(bookingTravelers.value) > 0 ? '' : 'Travelers must be greater than 0.')) isValid = false;
+	if (!setBookingError('#booking-package-type', '#booking-package-error', bookingPackageSelection ? '' : 'Choose a package before continuing.')) isValid = false;
+
+	return isValid;
+}
+
+function submitBooking(event) {
+	event.preventDefault();
+	if (!validateBookingForm()) return;
+
+	const bookingDate = new Date().toLocaleString();
+	const bookingDetails = {
+		fullName: bookingName.value,
+		emailAddress: bookingEmail.value,
+		mobileNumber: bookingMobile.value,
+		destination: bookingDestination.value,
+		packageType: document.querySelector('#booking-package-type').value,
+		numberOfDays: document.querySelector('#booking-days').value,
+		accommodation: document.querySelector('#booking-accommodation').value,
+		food: document.querySelector('#booking-food').value,
+		numberOfTravelers: Number(bookingTravelers.value),
+		packageCost: document.querySelector('#booking-package-cost').value,
+		totalCost: document.querySelector('#booking-total-cost').value,
+		bookingDateTime: bookingDate,
+		bookingStatus: 'Confirmed'
+	};
+	console.log('Booking details:', bookingDetails);
+
+	const confirmationFields = [
+		['#confirmation-name', bookingDetails.fullName],
+		['#confirmation-email', bookingDetails.emailAddress],
+		['#confirmation-mobile', bookingDetails.mobileNumber],
+		['#confirmation-destination', bookingDetails.destination],
+		['#confirmation-package-type', bookingDetails.packageType],
+		['#confirmation-days', bookingDetails.numberOfDays],
+		['#confirmation-accommodation', bookingDetails.accommodation],
+		['#confirmation-food', bookingDetails.food],
+		['#confirmation-travelers', String(bookingDetails.numberOfTravelers)],
+		['#confirmation-package-cost', bookingDetails.packageCost],
+		['#confirmation-total-cost', bookingDetails.totalCost],
+		['#confirmation-date', bookingDetails.bookingDateTime]
+	];
+
+	confirmationFields.forEach(function (field) {
+		document.querySelector(field[0]).textContent = field[1];
+	});
+	bookingSummary.hidden = true;
+	bookingForm.hidden = true;
+	bookingHeading.hidden = true;
+	confirmationCard.hidden = false;
+	journeyDialog.showModal();
+}
+
+function resetBooking() {
+	bookingForm.reset();
+	bookingPackageSelection = null;
+	bookingSummary.hidden = true;
+	confirmationCard.hidden = true;
+	bookingForm.hidden = false;
+	bookingHeading.hidden = false;
+	clearBookingErrors();
 }
 
 function showDescription(card) {
@@ -202,6 +297,7 @@ destinationCards.forEach(function (card) {
 				});
 			}
 			bookingDestination.value = card.querySelector('h3').textContent;
+			bookingDestination.defaultValue = bookingDestination.value;
 			bookingSection.hidden = false;
 			bookingSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 		}
@@ -224,8 +320,25 @@ document.querySelector('#choose-package').addEventListener('click', showBookingP
 	control.addEventListener('change', updateBookingPackageEstimate);
 });
 document.querySelector('#apply-package').addEventListener('click', applyBookingPackage);
+bookingForm.addEventListener('submit', submitBooking);
+document.querySelector('#reset-booking').addEventListener('click', resetBooking);
+document.querySelector('#plan-another-trip').addEventListener('click', function () {
+	journeyDialog.close();
+	resetBooking();
+});
 bookingTravelers.addEventListener('input', updateBookingSummary);
 bookingTravelers.addEventListener('change', updateBookingSummary);
+
+[
+	['#booking-name', '#booking-name-error'],
+	['#booking-email', '#booking-email-error'],
+	['#booking-mobile', '#booking-mobile-error'],
+	['#booking-travelers', '#booking-travelers-error']
+].forEach(function (field) {
+	document.querySelector(field[0]).addEventListener('input', function () {
+		setBookingError(field[0], field[1], '');
+	});
+});
 
 document.querySelectorAll('.rated-info .text-link, .rated-photo').forEach(function (link) {
 	link.addEventListener('click', function () {
@@ -254,7 +367,7 @@ document.querySelector('.gallery-next').addEventListener('click', function () {
 	updateGalleryImage();
 });
 
-[packageDialog, descriptionDialog, bookingPackageDialog].forEach(function (dialog) {
+[packageDialog, descriptionDialog, bookingPackageDialog, journeyDialog].forEach(function (dialog) {
 	dialog.addEventListener('click', function (event) {
 		if (event.target === dialog) dialog.close();
 	});
