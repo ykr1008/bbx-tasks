@@ -185,6 +185,27 @@ function startBooking() {
       console.log(`Seat ${String.fromCharCode(row)}${seat}`);
     }
   }
+
+  // 16. Display final booking details on the webpage
+  const bookingOutput = document.getElementById("booking-output");
+
+  bookingOutput.innerHTML = `
+  <h3>Booking Summary</h3>
+  <p><strong>Customer Name:</strong> ${customerName}</p>
+  <p><strong>Movie:</strong> ${movieName}</p>
+  <p><strong>Seat Type:</strong> ${seatType}</p>
+  <p><strong>Number of Tickets:</strong> ${numberOfTickets}</p>
+  <p><strong>Ticket Price:</strong> ₹${ticketPrice}</p>
+  <p><strong>Total Ticket Cost:</strong> ₹${totalTicketCost}</p>
+  <p><strong>Discount:</strong> ₹${discountAmount}</p>
+  <p><strong>Convenience Fee:</strong> ₹${convenienceFee}</p>
+  <p><strong>Final Amount:</strong> ₹${finalAmount}</p>
+  <p><strong>Average Cost per Ticket:</strong> ₹${averageCostPerTicket.toFixed(2)}</p>
+  <p><strong>Remainder:</strong> ${remainder}</p>
+  <p><strong>Booking Category:</strong> ${bookingCategory}</p>
+  <p><strong>Booking Status:</strong> ${bookingStatus}</p>
+  <p><strong>Confirmation Status:</strong> ${bookingConfirmed ? "Confirmed" : "Not Confirmed"}</p>
+`;
 }
 
 startBooking();
