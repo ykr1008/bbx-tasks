@@ -154,17 +154,17 @@
 					<p class="section-note">Tell us how to reach you and we’ll start with the details that matter.</p>
 				</div>
 				<form class="booking-form" id="booking-form" novalidate>
-					<label>Full name<input id="booking-name" type="text" placeholder="Name on your travel documents" autocomplete="name" aria-describedby="booking-name-error"><small class="field-error" id="booking-name-error"></small></label>
-					<label>Email address<input id="booking-email" type="email" placeholder="you@example.com" autocomplete="email" aria-describedby="booking-email-error"><small class="field-error" id="booking-email-error"></small></label>
-					<label>Mobile number<input id="booking-mobile" type="tel" placeholder="10-digit mobile number" autocomplete="tel" inputmode="numeric" aria-describedby="booking-mobile-error"><small class="field-error" id="booking-mobile-error"></small></label>
+					<label>Full name<input id="booking-name" type="text" placeholder="Enter your full name" autocomplete="name" aria-describedby="booking-name-error"><small class="field-error" id="booking-name-error"></small></label>
+					<label>Email address<input id="booking-email" type="email" placeholder="Enter your email address" autocomplete="email" aria-describedby="booking-email-error"><small class="field-error" id="booking-email-error"></small></label>
+					<label>Mobile number<input id="booking-mobile" type="tel" placeholder="Enter your 10-digit mobile number" autocomplete="tel" inputmode="numeric" aria-describedby="booking-mobile-error"><small class="field-error" id="booking-mobile-error"></small></label>
 					<label>Destination<input id="booking-destination" type="text" placeholder="Choose a destination" readonly></label>
-					<label>Number of travelers<input id="booking-travelers" type="number" min="1" value="1" placeholder="1" aria-describedby="booking-travelers-error"><small class="field-error" id="booking-travelers-error"></small></label>
+					<label>Number of travelers<input id="booking-travelers" type="number" min="1" value="1" placeholder="Enter number of travelers" aria-describedby="booking-travelers-error"><small class="field-error" id="booking-travelers-error"></small></label>
 					<label>Package type<input id="booking-package-type" type="text" placeholder="Choose a package" readonly aria-describedby="booking-package-error"><small class="field-error" id="booking-package-error"></small></label>
-					<label>Number of days<input id="booking-days" type="text" placeholder="Not selected" readonly></label>
-					<label>Accommodation<input id="booking-accommodation" type="text" placeholder="Not selected" readonly></label>
-					<label>Food<input id="booking-food" type="text" placeholder="Not selected" readonly></label>
-					<label>Package cost<input id="booking-package-cost" type="text" placeholder="Not selected" readonly></label>
-					<label>Total cost<input id="booking-total-cost" type="text" placeholder="Not selected" readonly></label>
+					<label>Number of days<input id="booking-days" type="text" placeholder="Set by selected package" readonly></label>
+					<label>Accommodation<input id="booking-accommodation" type="text" placeholder="Included with package" readonly></label>
+					<label>Food<input id="booking-food" type="text" placeholder="Included with package" readonly></label>
+					<label>Package cost<input id="booking-package-cost" type="text" placeholder="Set by selected package" readonly></label>
+					<label>Total cost<input id="booking-total-cost" type="text" placeholder="Calculated from package and travelers" readonly></label>
 					<button class="button button-dark booking-choose-button" id="choose-package" type="button">Choose package <span aria-hidden="true">↗</span></button>
 					<section class="booking-summary" id="booking-summary" hidden aria-labelledby="booking-summary-title" aria-live="polite">
 						<h3 id="booking-summary-title">Booking summary</h3>
